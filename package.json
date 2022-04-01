@@ -1,0 +1,31 @@
+{
+    "name": "blue_mod02_proj03",
+    "version": "1.0.0",
+    "description": "Valor da entrega: 10 pontos",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index",
+        "dev": "nodemon index"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/miaslls/BLUE_MOD02_PROJ03.git"
+    },
+    "author": "miaslls",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/miaslls/BLUE_MOD02_PROJ03/issues"
+    },
+    "homepage": "https://github.com/miaslls/BLUE_MOD02_PROJ03#readme",
+    "devDependencies": {
+        "nodemon": "^2.0.15"
+    },
+    "dependencies": {
+        "dotenv": "^16.0.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.3",
+        "pg": "^8.7.3",
+        "pg-hstore": "^2.3.4",
+        "sequelize": "^6.17.0"
+    }
+}

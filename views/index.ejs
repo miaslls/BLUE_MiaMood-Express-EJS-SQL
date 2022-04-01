@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <%- include('components/head'); %>
+
+  <title>MiaMood</title>
+</head>
+
+<body>
+
+  <%- include('components/header'); %>
+
+  <main>
+
+    <section id="moods">
+
+      <% allMoods.sort((a, b) => b.timestamp - a.timestamp) %>
+
+      <% allMoods = allMoods.slice(0, 10) %>
+
+      <% allMoods.forEach((mood) => { %>
+        
+      <% if (mood.text) { %>
+      <article class="mood_container note_mood mood_<%= mood.mood_id %>">
+
+        <% } else { %>
+        <article class="mood_container mood_<%= mood.mood_id %>">
+          <% } %>
+
+          <div class="mood_icon">
+            <%= mood.icon %>
+          </div>
+
+          <div class="mood_timestamp">
+            <span class="date"><%= mood.date %></span> @ <span class="time"><%= mood.time %></span>
+          </div>
+
+          <div class="mood_options">
+            <div class="edit"></div>
+            <div class="delete"></div>
+          </div>
+
+          <div class="mood_text">
+            <%= mood.text %>
+          </div>
+
+        </article>
+
+        <%}); %>
+
+    </section>
+
+  </main>
+
+  <%- include('components/footer'); %>
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+const { Sequelize } = require('sequelize');
+// filmes.js
+
+
+
+ssl: true,
+  protocol: "postgres",
+  logging: true,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  }
+  //depois do dialect: 'postgres' no database/index.js

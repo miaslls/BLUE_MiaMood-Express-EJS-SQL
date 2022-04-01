@@ -1,0 +1,163 @@
+/* 👁‍🗨 delete unused fonts */
+
+@import url("https://use.typekit.net/jit4tes.css");
+@font-face {
+    font-family: "Remix Icon";
+    src: url("../FONT/remixicon.woff2") format("woff2"), url("../FONT/remixicon.woff") format("woff");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #24949c;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: #EFE3F8;
+    background-image: linear-gradient(#D3B5E9, #EFE3F8, #EFE3F8, #EFE3F8, #EFE3F8);
+    background-size: cover;
+    font-family: brother-1816, sans-serif;
+    color: #9B6CC4;
+    overflow: hidden;
+}
+
+header {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+h1 {
+    width: 100%;
+    padding-left: 10%;
+    display: flex;
+    align-items: flex-end;
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+nav {
+    padding-left: 10%;
+    display: flex;
+    transition: all 0.25s;
+}
+
+.nav_icon {
+    font-family: 'Remix Icon';
+}
+
+.nav_icon:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+#nav-hint {
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 300;
+}
+
+main {
+    width: 100%;
+    height: 60%;
+    padding: 0 10%;
+}
+
+footer {
+    width: 100%;
+    height: 5%;
+    padding: 0 10%;
+}
+
+.spacer-10 {
+    height: 10%;
+}
+
+.spacer-5 {
+    height: 5%;
+}
+
+
+/* 🚨 */
+
+section#moods {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+article.mood_container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.mood_icon {
+    margin-right: 0.5rem;
+    font-family: 'Remix Icon';
+    font-size: 1.25rem;
+}
+
+.mood_timestamp {
+    width: calc(100% - 5rem);
+    font-size: 0.75rem;
+    overflow: hidden;
+}
+
+.mood_options {
+    width: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Remix Icon';
+    opacity: 1;
+}
+
+.mood_text {
+    width: 100%;
+    padding-left: 1.75rem;
+    font-family: brother-1816-printed, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.mood_0 {
+    color: #E25B2D!important;
+}
+
+.mood_1 {
+    color: #CD9F0C!important;
+}
+
+.mood_2 {
+    color: #A296AD!important;
+}
+
+.mood_3 {
+    color: #4483DB!important;
+}
+
+.mood_4 {
+    color: #03C599!important;
+}
+
+.mood_5 {
+    color: #EA3BA7!important;
+}
+
+@media screen and (min-width: 700px) {
+    section#moods {
+        width: 60%;
+    }
+}
