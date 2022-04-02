@@ -1,11 +1,10 @@
 'use strict';
 
+const navHint = document.getElementById('nav_hint');
+
 // 📌 nav bar
 
-const navHint = document.getElementById('nav_hint');
 const navIconList = document.getElementsByClassName('nav_icon');
-
-navHint.innerText = 'mood/LATEST';
 
 for (let icon of navIconList) {
 
@@ -24,12 +23,11 @@ for (let icon of navIconList) {
             case 'newMood':
                 navHint.innerText = 'mood/NEW';
         }
-
     });
 
     icon.addEventListener('mouseleave', () => {
 
-        navHint.innerText = navHint_byScreen;
+        navHint.innerText = '';
 
     });
 }
