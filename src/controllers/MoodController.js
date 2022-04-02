@@ -12,10 +12,10 @@ const getLatest = async (req, res) => {
         const allMoods = await Mood.findAll();
         allMoods.sort((a, b) => b.timestamp - a.timestamp);
 
-        let latestMoods = allMoods.slice(0, 7);
-        latestMoods = formatMood(latestMoods);
+        let moods = allMoods.slice(0, 7);
+        moods = formatMood(moods);
 
-        res.render('index', { latestMoods });
+        res.render('index', { moods });
     } catch (err) {
         res.redirect('/oops');
         console.log(err);
@@ -23,12 +23,12 @@ const getLatest = async (req, res) => {
 }
 const getAll = async (req, res) => {
     try {
-        let allMoods = await Mood.findAll();
-        allMoods.sort((a, b) => b.timestamp - a.timestamp);
+        let moods = await Mood.findAll();
+        moods.sort((a, b) => b.timestamp - a.timestamp);
 
-        allMoods = formatMood(allMoods);
+        moods = formatMood(moods);
 
-        res.render('allMoods', { allMoods });
+        res.render('allMoods', { moods });
     } catch (err) {
         res.redirect('/oops');
         console.log(err);

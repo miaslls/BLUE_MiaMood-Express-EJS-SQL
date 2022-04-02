@@ -1,6 +1,6 @@
 'use strict';
 
-navHint_byScreen = 'mood/NEW';
+navHint.innerText = 'mood/NEW';
 
 const mood_id_input = document.getElementById('mood_id-input');
 const icon_input = document.getElementById('icon-input');

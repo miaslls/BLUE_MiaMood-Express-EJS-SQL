@@ -6,7 +6,7 @@ A avaliação será feita por entregáveis obrigatórios, cada um valerá uma qu
 
 
 + Persistir os dados através do PostgreSQL com o Sequelize. (2,0) ✔
-+ Toda entrada de dados deve ser validada antes. (0,5) ✔ 👁‍🗨 ACAUÃ
++ Toda entrada de dados deve ser validada antes. (0,5) ✔
 + Criar um menu de navegação em todas as telas. (0,5) ✔
 + Criar as telas EJS. (1,5)
 + Responsividade em todas as telas. (0,5) ✔
@@ -18,3 +18,5 @@ A avaliação será feita por entregáveis obrigatórios, cada um valerá uma qu
 + Projeto postado no Heroku. (0,5)
 
 + ## **APRESENTAÇÃO**
+
+💡 extract moodlist to partial

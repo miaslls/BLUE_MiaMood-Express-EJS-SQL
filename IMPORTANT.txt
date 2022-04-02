@@ -1,7 +1,3 @@
-STOPPED AT Aula 18 UPDATE @10'
-
-
-
 ssl: true,
   protocol: "postgres",
   logging: true,

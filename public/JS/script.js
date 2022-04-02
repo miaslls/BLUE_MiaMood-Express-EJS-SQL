@@ -1,13 +1,11 @@
 'use strict';
 
-let navHint_byScreen = 'mood/LATEST';
-
 // 📌 nav bar
 
 const navHint = document.getElementById('nav_hint');
 const navIconList = document.getElementsByClassName('nav_icon');
 
-navHint.innerText = navHint_byScreen;
+navHint.innerText = 'mood/LATEST';
 
 for (let icon of navIconList) {
 
