@@ -16,39 +16,38 @@
 
     <section id="moods">
 
-      <% allMoods.sort((a, b) => b.timestamp - a.timestamp) %>
+      <% latestMoods.forEach((mood, index) => { %>
 
-      <% allMoods = allMoods.slice(0, 10) %>
+        <% if (index === 0 || (mood.date !== latestMoods[index - 1].date)) { %>
+            <h2><%= mood.formattedDate_title %></h2>
+        <% } %>
 
-      <% allMoods.forEach((mood) => { %>
-        
-      <% if (mood.text) { %>
-      <article class="mood_container note_mood mood_<%= mood.mood_id %>">
-
+        <% if (mood.text) { %>
+          <article class="mood_container note_mood mood_<%= mood.mood_id %>">
         <% } else { %>
-        <article class="mood_container mood_<%= mood.mood_id %>">
-          <% } %>
+          <article class="mood_container mood_<%= mood.mood_id %>">
+        <% } %>
 
-          <div class="mood_icon">
-            <%= mood.icon %>
-          </div>
+        <div class="mood_icon">
+          <%= mood.icon %>
+        </div>
 
-          <div class="mood_timestamp">
-            <span class="date"><%= mood.date %></span> @ <span class="time"><%= mood.time %></span>
-          </div>
+        <div class="mood_timestamp">
+          <span class="date"><%= mood.formattedDate_text %></span> @ <span class="time"><%= mood.formattedTime %></span>
+        </div>
 
-          <div class="mood_options">
-            <div class="edit"></div>
-            <div class="delete"></div>
-          </div>
+        <div class="mood_options">
+          <div class="edit"></div>
+          <div class="delete"></div>
+        </div>
 
-          <div class="mood_text">
-            <%= mood.text %>
-          </div>
+        <div class="mood_text">
+          <%= mood.text %>
+        </div>
 
         </article>
 
-        <%}); %>
+      <%}); %>
 
     </section>
 

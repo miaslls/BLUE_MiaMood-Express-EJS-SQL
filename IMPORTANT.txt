@@ -1,5 +1,4 @@
-const { Sequelize } = require('sequelize');
-// filmes.js
+STOPPED AT Aula 18 UPDATE @10'
 
 
 

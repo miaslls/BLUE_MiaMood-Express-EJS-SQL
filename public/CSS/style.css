@@ -46,6 +46,11 @@ h1 {
     font-weight: 300;
 }
 
+h2 {
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
 nav {
     padding-left: 10%;
     display: flex;
@@ -69,18 +74,15 @@ nav {
 
 main {
     width: 100%;
-    height: 60%;
+    height: 65%;
     padding: 0 10%;
+    overflow: auto;
 }
 
 footer {
     width: 100%;
     height: 5%;
     padding: 0 10%;
-}
-
-.spacer-10 {
-    height: 10%;
 }
 
 .spacer-5 {

@@ -40,7 +40,7 @@
           <span class="label" id="dateTime-label">date/time *</span>
 
           <input type="date" name="date" id="date-input" class="dateTime-input input" required>
-          <input type="time" name="time" id="time-input" class="dateTime-input input" required>
+          <input type="time" step="1" name="time" id="time-input" class="dateTime-input input" required>
 
         </div>
 
@@ -49,8 +49,6 @@
           <input type="hidden" name="icon" id="icon-input" class="input">
 
           <span class="label">icon</span>
-
-          <% const icon_list =  ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]; %>
 
           <div id="icon-wrapper">
 
@@ -74,6 +72,7 @@
 
         </div>
 
+        <input type="hidden" name="createdAt" id="createdAt-input" class="input">
         <input type="hidden" name="timestamp" id="timestamp-input" class="input">
 
         <button id="addMood_btn" type="submit" disabled>
