@@ -14,6 +14,43 @@
 
   <main>
 
+    <section id="moods">
+
+        <% allMoods.forEach((mood, index) => { %>
+  
+          <% if (index === 0 || (mood.date !== allMoods[index - 1].date)) { %>
+              <h2><%= mood.formattedDate_title %></h2>
+          <% } %>
+  
+          <% if (mood.text) { %>
+            <article class="mood_container note_mood mood_<%= mood.mood_id %>">
+          <% } else { %>
+            <article class="mood_container mood_<%= mood.mood_id %>">
+          <% } %>
+  
+          <div class="mood_icon">
+            <%= mood.icon %>
+          </div>
+  
+          <div class="mood_timestamp">
+            <span class="date"><%= mood.formattedDate_text %></span> @ <span class="time"><%= mood.formattedTime %></span>
+          </div>
+  
+          <div class="mood_options">
+            <div class="edit"></div>
+            <div class="delete"></div>
+          </div>
+  
+          <div class="mood_text">
+            <%= mood.text %>
+          </div>
+  
+          </article>
+  
+        <%}); %>
+  
+      </section>
+
   </main>
 
   <%- include('components/footer'); %>

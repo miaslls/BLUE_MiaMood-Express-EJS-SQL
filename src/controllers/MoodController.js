@@ -1,19 +1,36 @@
 'use strict';
 
+const res = require('express/lib/response');
 const Mood = require('../models/Mood');
 
-const getAll = async (req, res) => {
+const oops = (req, res) => {
+    res.render('oops');
+}
+
+const getLatest = async (req, res) => {
     try {
         const allMoods = await Mood.findAll();
-
         allMoods.sort((a, b) => b.timestamp - a.timestamp);
-        let latestMoods = allMoods.slice(0, 5);
 
+        let latestMoods = allMoods.slice(0, 5);
         latestMoods = formatMood(latestMoods);
 
-        res.render('index', { latestMoods, mood_put: null, mood_del: null });
+        res.render('index', { latestMoods });
     } catch (err) {
-        res.status(500).send({ err: err.message });
+        res.render('oops');
+        console.log(err);
+    }
+}
+const getAll = async (req, res) => {
+    try {
+        let allMoods = await Mood.findAll();
+        allMoods.sort((a, b) => b.timestamp - a.timestamp);
+
+        allMoods = formatMood(allMoods);
+
+        res.render('allMoods', { allMoods });
+    } catch (err) {
+        res.render('oops');
         console.log(err);
     }
 }
@@ -25,7 +42,7 @@ const newMood = (req, res) => {
 
         res.render('newMood', { icon_list });
     } catch (err) {
-        res.status(500).send({ err: err.message });
+        res.render('oops');
         console.log(err);
 
     }
@@ -35,15 +52,14 @@ const addMood = async (req, res) => {
     try {
         const mood = req.body;
 
-        if (!mood) {
-            return res.redirect('/newMood');
-        }
+        validateInputs(mood);
 
         await Mood.create(mood);
+        
         res.redirect('/');
 
     } catch (err) {
-        res.status(500).send({ err: err.message });
+        res.render('oops');
         console.log(err);
     }
 }
@@ -97,4 +113,19 @@ const formatMoodTime = (mood) => {
     return hours.toString().padStart(2, '0') + ':' + minutes + ':' + seconds + amPm;
 }
 
-module.exports = { getAll, newMood, addMood }
+// 📌 validation
+
+const validateInputs = (mood) => {
+
+    const validate_mood_id = (!mood.mood_id || isNaN(mood.mood_id) || mood.mood_id < 0 || mood.mood_id < 5);
+    const validateForEmpty = (!mood.icon) || (!mood.date) || (!mood.time);
+
+    const validate_timestamp = (!mood.timestamp || isNaN(mood.timestamp) || mood.timestamp.toString().length !== 14);
+    const validate_createdAt = (!mood.createdAt || isNaN(mood.createdAt) || mood.createdAt.toString().length !== 14);
+
+    if ((!mood) || (validate_mood_id) || (validateForEmpty) || validate_timestamp || validate_createdAt) {
+        res.render('oops');
+    }
+}
+
+module.exports = { oops, getAll, getLatest, newMood, addMood }

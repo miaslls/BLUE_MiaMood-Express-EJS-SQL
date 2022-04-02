@@ -1,6 +1,7 @@
 /* 👁‍🗨 delete unused fonts */
 
 @import url("https://use.typekit.net/jit4tes.css");
+
 @font-face {
     font-family: "Remix Icon";
     src: url("../FONT/remixicon.woff2") format("woff2"), url("../FONT/remixicon.woff") format("woff");
@@ -13,9 +14,43 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.352);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d3b5e96d;
+    border-radius: 10px;
+}
+
+a:hover {
+    transform: scale(1.2)
+}
+
+h1 {
+    width: 100%;
+    padding-left: 10%;
+    display: flex;
+    align-items: flex-end;
+    font-size: 3rem;
+    font-weight: 300;
+}
+
 a {
     text-decoration: none;
     color: #24949c;
+    transition: all 0.5s;
+}
+
+h2,
+h3 {
+    font-size: 1.1rem;
+    font-weight: 300;
 }
 
 body {
@@ -35,20 +70,6 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-}
-
-h1 {
-    width: 100%;
-    padding-left: 10%;
-    display: flex;
-    align-items: flex-end;
-    font-size: 3rem;
-    font-weight: 300;
-}
-
-h2 {
-    font-size: 1.1rem;
-    font-weight: 300;
 }
 
 nav {
@@ -76,7 +97,6 @@ main {
     width: 100%;
     height: 65%;
     padding: 0 10%;
-    overflow: auto;
 }
 
 footer {
@@ -89,14 +109,43 @@ footer {
     height: 5%;
 }
 
+/* 📌 */
+
+section#oops {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+section#oops h2 {
+    font-size: x-large;
+}
+
+section#oops h3 {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+}
+
+section#oops p {
+    font-weight: lighter;
+}
+
+#homeIcon {
+    margin-left: 0.25rem;
+    font-family: 'Remix Icon';
+    font-size: larger;
+}
 
 /* 🚨 */
 
 section#moods {
     width: 100%;
+    max-height: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
+    overflow: auto;
 }
 
 article.mood_container {
@@ -135,31 +184,33 @@ article.mood_container {
 }
 
 .mood_0 {
-    color: #E25B2D!important;
+    color: #E25B2D !important;
 }
 
 .mood_1 {
-    color: #CD9F0C!important;
+    color: #CD9F0C !important;
 }
 
 .mood_2 {
-    color: #A296AD!important;
+    color: #A296AD !important;
 }
 
 .mood_3 {
-    color: #4483DB!important;
+    color: #4483DB !important;
 }
 
 .mood_4 {
-    color: #03C599!important;
+    color: #03C599 !important;
 }
 
 .mood_5 {
-    color: #EA3BA7!important;
+    color: #EA3BA7 !important;
 }
 
 @media screen and (min-width: 700px) {
-    section#moods {
-        width: 60%;
+
+    section#moods,
+    section#oops {
+        width: 50%;
     }
 }
