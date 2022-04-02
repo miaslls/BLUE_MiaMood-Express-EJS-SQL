@@ -12,12 +12,12 @@ const getLatest = async (req, res) => {
         const allMoods = await Mood.findAll();
         allMoods.sort((a, b) => b.timestamp - a.timestamp);
 
-        let latestMoods = allMoods.slice(0, 5);
+        let latestMoods = allMoods.slice(0, 7);
         latestMoods = formatMood(latestMoods);
 
         res.render('index', { latestMoods });
     } catch (err) {
-        res.render('oops');
+        res.redirect('/oops');
         console.log(err);
     }
 }
@@ -30,7 +30,7 @@ const getAll = async (req, res) => {
 
         res.render('allMoods', { allMoods });
     } catch (err) {
-        res.render('oops');
+        res.redirect('/oops');
         console.log(err);
     }
 }
@@ -42,7 +42,7 @@ const newMood = (req, res) => {
 
         res.render('newMood', { icon_list });
     } catch (err) {
-        res.render('oops');
+        res.redirect('/oops');
         console.log(err);
 
     }
@@ -59,7 +59,7 @@ const addMood = async (req, res) => {
         res.redirect('/');
 
     } catch (err) {
-        res.render('oops');
+        res.redirect('/oops');
         console.log(err);
     }
 }
@@ -117,14 +117,14 @@ const formatMoodTime = (mood) => {
 
 const validateInputs = (mood) => {
 
-    const validate_mood_id = (!mood.mood_id || isNaN(mood.mood_id) || mood.mood_id < 0 || mood.mood_id < 5);
+    const validate_mood_id = (!mood.mood_id || isNaN(mood.mood_id) || mood.mood_id < 0 || mood.mood_id > 5);
     const validateForEmpty = (!mood.icon) || (!mood.date) || (!mood.time);
 
     const validate_timestamp = (!mood.timestamp || isNaN(mood.timestamp) || mood.timestamp.toString().length !== 14);
     const validate_createdAt = (!mood.createdAt || isNaN(mood.createdAt) || mood.createdAt.toString().length !== 14);
 
     if ((!mood) || (validate_mood_id) || (validateForEmpty) || validate_timestamp || validate_createdAt) {
-        res.render('oops');
+        res.redirect('/oops');
     }
 }
 
