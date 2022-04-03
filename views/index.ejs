@@ -14,8 +14,17 @@
 
   <main>
 
+    <% if (!mood_put && !mood_delete) { %>
+
     <%- include ('components/moods'); %>
 
+    <% } else if (mood_put) { %>
+
+    <%- include ('components/moodToEdit'); %>
+    <%- include ('components/editMood'); %>
+    
+    <% } %>
+    
   </main>
 
   <%- include('components/footer'); %>

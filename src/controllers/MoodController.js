@@ -3,8 +3,18 @@
 const res = require('express/lib/response');
 const Mood = require('../models/Mood');
 
-const oops = (req, res) => {
-    res.render('oops');
+const getAll = async (req, res) => {
+    try {
+        let moods = await Mood.findAll();
+        moods.sort((a, b) => b.timestamp - a.timestamp);
+
+        moods = formatMood(moods);
+
+        res.render('allMoods', { moods, icon_list, mood_put: null, mood_delete: null });
+    } catch (err) {
+        res.redirect('/oops');
+        console.log(err);
+    }
 }
 
 const getLatest = async (req, res) => {
@@ -15,20 +25,27 @@ const getLatest = async (req, res) => {
         let moods = allMoods.slice(0, 7);
         moods = formatMood(moods);
 
-        res.render('index', { moods });
+        res.render('index', { moods, icon_list, mood_put: null, mood_delete: null });
     } catch (err) {
         res.redirect('/oops');
         console.log(err);
     }
 }
-const getAll = async (req, res) => {
+
+const getById = async (req, res) => {
+
     try {
-        let moods = await Mood.findAll();
-        moods.sort((a, b) => b.timestamp - a.timestamp);
 
-        moods = formatMood(moods);
+        const method = req.params.method;
 
-        res.render('allMoods', { moods });
+        const mood = await Mood.findByPk(req.params.id);
+
+        if (method === 'put') {
+            res.render('index', { mood_put: mood, mood_delete: null, icon_list });
+        } else {
+            res.render('index', { mood_put: null, mood_delete: mood, icon_list });
+        }
+
     } catch (err) {
         res.redirect('/oops');
         console.log(err);
@@ -37,8 +54,6 @@ const getAll = async (req, res) => {
 
 const newMood = (req, res) => {
     try {
-
-        const icon_list = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
 
         res.render('newMood', { icon_list });
     } catch (err) {
@@ -57,6 +72,22 @@ const addMood = async (req, res) => {
         await Mood.create(mood);
         
         res.redirect('/');
+
+    } catch (err) {
+        res.redirect('/oops');
+        console.log(err);
+    }
+}
+
+const update = async (req, res) => {
+    try {
+        const mood = req.body;
+        await Mood.update(mood, {where: {createdAt: req.params.id}});
+
+        console.log(mood, req.params.id); // 🐞
+
+        res.redirect('/');
+
 
     } catch (err) {
         res.redirect('/oops');
@@ -128,4 +159,10 @@ const validateInputs = (mood) => {
     }
 }
 
-module.exports = { oops, getAll, getLatest, newMood, addMood }
+const oops = (req, res) => {
+    res.render('oops');
+}
+
+const icon_list = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+
+module.exports = { oops, getAll, getLatest, getById, newMood, addMood, update }

@@ -1,9 +1,8 @@
 'use strict';
 
-const navHint = document.getElementById('nav_hint');
-
 // 📌 nav bar
 
+const navHint = document.getElementById('nav_hint');
 const navIconList = document.getElementsByClassName('nav_icon');
 
 for (let icon of navIconList) {

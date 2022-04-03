@@ -1,0 +1,28 @@
+<section id="moods">
+
+      <% if (mood_put.text) { %>
+        <article class="mood_container note_mood mood_<%= mood_put.mood_id %>">
+      <% } else { %>
+        <article class="mood_container mood_<%= mood_put.mood_id %>">
+      <% } %>
+
+      <div class="mood_icon">
+        <%= mood_put.icon %>
+      </div>
+
+      <div class="mood_timestamp">
+        <span class="date"><%= mood_put.date %></span> @ <span class="time"><%= mood_put.time %></span>
+      </div>
+
+      <div class="mood_options">
+        <div class="editIcon"><a href="/getById/<%= mood_put.createdAt %>/put"></a></div>
+        <div class="deleteIcon"><a href="/getById/<%= mood_put.createdAt %>/delete"></a></div>
+      </div>
+
+      <div class="mood_text">
+        <%= mood_put.text %>
+      </div>
+
+    </article>
+
+</section>
