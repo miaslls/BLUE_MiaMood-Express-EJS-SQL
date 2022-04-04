@@ -1,6 +1,6 @@
 <section class="moodForm" id="editMood">
 
-    <form action="/update/<%= mood_put.createdAt %>" method="POST" id="newMood">
+    <form action="/update/<%= mood_put.createdat %>" method="POST" id="newMood">
 
       <div id="mood-choice">
 
@@ -54,7 +54,7 @@
 
       </div>
 
-      <input type="hidden" name="createdAt" id="createdAt-input" class="input" value="<%= mood_put.createdAt %>">
+      <input type="hidden" name="createdat" id="createdat-input" class="input" value="<%= mood_put.createdat %>">
       <input type="hidden" name="timestamp" id="timestamp-input" class="input" value="<%= mood_put.timestamp %>">
 
       <button class="btn_enabled mood_<%= mood_put.mood_id %>" id="addMood_btn" type="submit">

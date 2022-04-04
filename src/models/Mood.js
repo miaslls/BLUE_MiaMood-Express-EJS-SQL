@@ -29,7 +29,7 @@ const Mood = connection.define('mood', {
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    createdAt: {
+    createdat: {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true

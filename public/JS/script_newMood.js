@@ -47,10 +47,10 @@ time_input.value = time;
 
 // 📌
 
-const createdAt_input = document.getElementById('createdAt-input');
+const createdat_input = document.getElementById('createdat-input');
 const timestamp_input = document.getElementById('timestamp-input');
 
-createdAt_input.value = `${year}${month}${day}${hours}${minutes}${seconds}`;
+createdat_input.value = `${year}${month}${day}${hours}${minutes}${seconds}`;
 timestamp_input.value = `${year}${month}${day}${hours}${minutes}${seconds}`;
 
 date_input.addEventListener('input', (e) => {
