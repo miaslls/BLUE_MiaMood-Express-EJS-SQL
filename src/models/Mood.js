@@ -26,11 +26,11 @@ const Mood = connection.define('mood', {
         allowNull: false
     },
     timestamp: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BIGINT,
         allowNull: false
     },
     createdat: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BIGINT,
         allowNull: false,
         primaryKey: true
     }
