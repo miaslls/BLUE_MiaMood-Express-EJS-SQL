@@ -21,6 +21,7 @@ A avaliação será feita por entregáveis obrigatórios, cada um valerá uma qu
 
 💡 extract moodlist to partial ✔
 💡 calendar
+💡 extra icon options
 
 
 -----

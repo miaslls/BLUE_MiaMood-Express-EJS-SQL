@@ -53,6 +53,10 @@ h3 {
     font-weight: 300;
 }
 
+.icon {
+    font-family: 'Remix Icon';
+}
+
 body {
     width: 100vw;
     height: 100vh;
@@ -73,6 +77,33 @@ header {
     justify-content: flex-end;
 }
 
+#message {
+    width: fit-content;
+    padding: 0.25rem 0.75rem 0.25rem 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    gap: 0.5rem;
+    background: #9B6CC4;
+    font-size: 1.25rem;
+    color: #e5d7f0;
+    animation-name: flash;
+    animation-duration: 0.5s;
+    animation-iteration-count: 3;
+    animation-fill-mode: forwards;
+}
+
+@keyframes flash {
+    0%, 25%, 50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+#message_text {
+    font-size: smaller;
+    font-weight: lighter;
+}
+
 nav {
     height: 1rem;
     padding-left: 10%;
@@ -86,7 +117,6 @@ nav {
 }
 
 .nav_icon {
-    font-family: 'Remix Icon';
     transition: all 0.15s;
 }
 
@@ -140,7 +170,6 @@ article.mood_container {
 
 .mood_icon {
     margin-right: 0.5rem;
-    font-family: 'Remix Icon';
     font-size: 1.25rem;
 }
 
@@ -162,7 +191,6 @@ article.mood_container {
     display: flex;
     justify-content: flex-end;
     gap: 0.1rem;
-    font-family: 'Remix Icon';
     opacity: 0.5;
 }
 
@@ -252,7 +280,6 @@ section#oops p {
 
 #homeIcon, #yesIcon, #noIcon {
     margin: 0 0.25rem;
-    font-family: 'Remix Icon';
     font-size: larger;
 }
 

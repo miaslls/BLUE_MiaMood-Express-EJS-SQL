@@ -2,6 +2,7 @@
 
 const res = require('express/lib/response');
 const Mood = require('../models/Mood');
+let message = null;
 
 const getAll = async (req, res) => {
     try {
@@ -9,21 +10,26 @@ const getAll = async (req, res) => {
         moods.sort((a, b) => b.timestamp - a.timestamp);
         moods = formatMood(moods);
 
-        res.render('allMoods', { moods, icon_list, mood_put: null, mood_delete: null });
+        res.render('allMoods', { moods, icon_list, mood_put: null, mood_delete: null, message });
     } catch (err) {
-        res.redirect('/oops');
+        res.redirect('/oops', { message });
         console.log(err);
     }
 }
 
 const getLatest = async (req, res) => {
     try {
+
+        setTimeout(() => {
+            message = null;
+        }, 1000);
+
         const allMoods = await Mood.findAll();
         allMoods.sort((a, b) => b.timestamp - a.timestamp);
         let moods = allMoods.slice(0, 7);
         moods = formatMood(moods);
 
-        res.render('index', { moods, icon_list, mood_put: null, mood_delete: null });
+        res.render('index', { moods, icon_list, mood_put: null, mood_delete: null, message });
     } catch (err) {
         res.redirect('/oops');
         console.log(err);
@@ -37,9 +43,9 @@ const getById = async (req, res) => {
         const mood = await Mood.findByPk(req.params.id);
 
         if (method === 'put') {
-            res.render('index', { mood_put: mood, mood_delete: null, icon_list });
+            res.render('index', { mood_put: mood, mood_delete: null, icon_list, message });
         } else {
-            res.render('index', { mood_put: null, mood_delete: mood, icon_list });
+            res.render('index', { mood_put: null, mood_delete: mood, icon_list, message });
         }
     } catch (err) {
         res.redirect('/oops');
@@ -49,19 +55,8 @@ const getById = async (req, res) => {
 
 const newMood = (req, res) => {
     try {
-        res.render('newMood', { icon_list });
+        res.render('newMood', { icon_list, message });
     } catch (err) {
-        res.redirect('/oops');
-        console.log(err);
-    }
-}
-
-const remove = async (req, res) => {
-    try {
-        await Mood.destroy({ where: { createdAt: req.params.id } });
-        res.redirect('/');
-    }
-    catch (err) {
         res.redirect('/oops');
         console.log(err);
     }
@@ -73,6 +68,8 @@ const addMood = async (req, res) => {
         validateInputs(mood);
 
         await Mood.create(mood);
+
+        message = 'Mood CREATED';
         res.redirect('/');
     } catch (err) {
         res.redirect('/oops');
@@ -85,8 +82,23 @@ const update = async (req, res) => {
         const mood = req.body;
 
         await Mood.update(mood, { where: { createdAt: req.params.id } });
+
+        message = 'Mood UPDATED';
         res.redirect('/');
     } catch (err) {
+        res.redirect('/oops');
+        console.log(err);
+    }
+}
+
+const remove = async (req, res) => {
+    try {
+        await Mood.destroy({ where: { createdAt: req.params.id } });
+
+        message = 'Mood DESTROYED';
+        res.redirect('/');
+    }
+    catch (err) {
         res.redirect('/oops');
         console.log(err);
     }

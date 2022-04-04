@@ -24,12 +24,12 @@
 
           <span class="label">mood *</span>
 
-          <div class="mood-icon default mood_0" id="0"></div>
-          <div class="mood-icon default mood_1" id="1"></div>
-          <div class="mood-icon default mood_2" id="2"></div>
-          <div class="mood-icon default mood_3" id="3"></div>
-          <div class="mood-icon default mood_4" id="4"></div>
-          <div class="mood-icon default mood_5" id="5"></div>
+          <div class="icon mood-icon default mood_0" id="0"></div>
+          <div class="icon mood-icon default mood_1" id="1"></div>
+          <div class="icon mood-icon default mood_2" id="2"></div>
+          <div class="icon mood-icon default mood_3" id="3"></div>
+          <div class="icon mood-icon default mood_4" id="4"></div>
+          <div class="icon mood-icon default mood_5" id="5"></div>
 
         </div>
 
@@ -52,7 +52,7 @@
 
             <% for (let i = 0; i < icon_list.length; i++) { %>
 
-            <div class="mood-icon custom">
+            <div class="icon mood-icon custom">
               <%= icon_list[i] %>
             </div>
 
@@ -75,7 +75,7 @@
 
         <button id="addMood_btn" type="submit" disabled>
           add<strong>Mood</strong>
-          <span id="btn_icon"></span>
+          <span class="icon" id="btn_icon"></span>
         </button>
 
       </form>
