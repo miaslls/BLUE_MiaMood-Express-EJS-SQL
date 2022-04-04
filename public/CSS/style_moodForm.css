@@ -13,10 +13,6 @@ input {
     outline: 0;
 }
 
-/* .icon {
-    font-family: 'Remix Icon';
-} */
-
 #mood-choice {
     display: flex;
     flex-wrap: wrap;
@@ -31,11 +27,6 @@ input {
 .mood-icon {
     font-size: 1.5rem;
     transition: all 0.25s;
-}
-
-.mood-icon:hover {
-    transform: scale(1.5);
-    cursor: pointer;
 }
 
 #icon-wrapper {
@@ -96,21 +87,27 @@ input {
     transition: all 0.25s;
 }
 
-#addMood_btn:hover {
-    cursor: not-allowed;
-}
-
-.btn_enabled:hover {
-    transform: scale(1.2);
-    cursor: pointer !important;
-}
-
 #btn_icon {
     margin-left: 0.5rem;
 }
 
 @media screen and (min-width: 700px) {
+
     section {
         width: 45%;
+    }
+
+    .mood-icon:hover {
+        transform: scale(1.5);
+        cursor: pointer;
+    }
+
+    #addMood_btn:hover {
+        cursor: not-allowed;
+    }
+
+    .btn_enabled:hover {
+        transform: scale(1.2);
+        cursor: pointer !important;
     }
 }

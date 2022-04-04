@@ -29,6 +29,17 @@
     border-radius: 10px;
 }
 
+body {
+    width: 100vw;
+    height: 100vh;
+    background: #EFE3F8;
+    background-image: linear-gradient(#D3B5E9, #EFE3F8, #EFE3F8, #EFE3F8, #EFE3F8);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: brother-1816, sans-serif;
+    color: #9B6CC4;
+}
+
 h1 {
     width: 100%;
     padding-left: 10%;
@@ -44,10 +55,6 @@ a {
     transition: all 0.5s;
 }
 
-a:hover {
-    transform: scale(1.2)
-}
-
 h2,
 h3 {
     font-size: 1.1rem;
@@ -56,18 +63,6 @@ h3 {
 
 .icon {
     font-family: 'Remix Icon';
-}
-
-body {
-    width: 100vw;
-    height: 100vh;
-    background: #EFE3F8;
-    background-image: linear-gradient(#D3B5E9, #EFE3F8, #EFE3F8, #EFE3F8, #EFE3F8);
-    background-size: cover;
-    background-attachment: fixed;
-    font-family: brother-1816, sans-serif;
-    color: #9B6CC4;
-    overflow-x: hidden;
 }
 
 header {
@@ -91,7 +86,7 @@ header {
     color: #e5d7f0;
     animation-name: flash;
     animation-duration: 0.75s;
-    animation-iteration-count: 3;
+    animation-iteration-count: 5;
     animation-fill-mode: forwards;
 }
 
@@ -155,7 +150,6 @@ section#moods {
     gap: 0.75rem;
     overflow-y: auto;
     overflow-x: hidden;
-
 }
 
 article.mood_container {
@@ -195,31 +189,31 @@ article.mood_container {
     opacity: 0.5;
 }
 
-.mood_0 {
+.mood_1 {
     color: #E25B2D !important;
 }
 
-.mood_1 {
+.mood_2 {
     color: #CD9F0C !important;
 }
 
-.mood_2 {
+.mood_3 {
     color: #A296AD !important;
 }
 
-.mood_3 {
+.mood_4 {
     color: #4483DB !important;
 }
 
-.mood_4 {
+.mood_5 {
     color: #03C599 !important;
 }
 
-.mood_5 {
+.mood_6 {
     color: #EA3BA7 !important;
 }
 
-.mood_6 {
+.mood_0 {
     color: #9B6CC4 !important;
 }
 
@@ -294,6 +288,10 @@ section#oops p {
 
     body {
         overflow: hidden;
+    }
+
+    a:hover {
+        transform: scale(1.2);
     }
 
     main {
