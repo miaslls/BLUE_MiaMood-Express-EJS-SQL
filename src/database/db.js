@@ -6,6 +6,7 @@ const connection = new Sequelize(
     process.env.DATABASE_URL,
     {
         dialect: 'postgres',
+        logging: true,
         dialectOptions: {
             sll: {
                 require: true,
