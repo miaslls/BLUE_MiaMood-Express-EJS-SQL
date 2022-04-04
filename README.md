@@ -19,9 +19,10 @@ A avaliação será feita por entregáveis obrigatórios, cada um valerá uma qu
 
 + ## **APRESENTAÇÃO**
 
-💡 extract moodlist to partial ✔
-💡 calendar
-💡 extra icon options
+💡 extract moodlist to partial ✔  
+💡 calendar  
+💡 extra icon options  
+💡 add mood hint on hover (forms)  
 
 
 -----

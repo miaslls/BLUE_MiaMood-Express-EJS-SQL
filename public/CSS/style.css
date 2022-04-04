@@ -89,7 +89,7 @@ header {
     font-size: 1.25rem;
     color: #e5d7f0;
     animation-name: flash;
-    animation-duration: 0.5s;
+    animation-duration: 0.75s;
     animation-iteration-count: 3;
     animation-fill-mode: forwards;
 }
@@ -216,6 +216,10 @@ article.mood_container {
 
 .mood_5 {
     color: #EA3BA7 !important;
+}
+
+.mood_6 {
+    color: #9B6CC4 !important;
 }
 
 /* 📌 */

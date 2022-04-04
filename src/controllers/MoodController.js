@@ -156,7 +156,7 @@ const formatMoodTime = (mood) => {
 
 const validateInputs = (mood) => {
 
-    const validate_mood_id = (!mood.mood_id || isNaN(mood.mood_id) || mood.mood_id < 0 || mood.mood_id > 5);
+    const validate_mood_id = (!mood.mood_id || isNaN(mood.mood_id) || mood.mood_id < 0 || mood.mood_id > 6);
     const validateForEmpty = (!mood.icon) || (!mood.date) || (!mood.time);
     const validate_timestamp = (!mood.timestamp || isNaN(mood.timestamp) || mood.timestamp.toString().length !== 14);
     const validate_createdAt = (!mood.createdAt || isNaN(mood.createdAt) || mood.createdAt.toString().length !== 14);

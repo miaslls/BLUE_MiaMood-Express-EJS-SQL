@@ -41,4 +41,10 @@ const Mood = connection.define('mood', {
     updatedAt: false
 });
 
+const initTable = async () => {
+    await Mood.sync()
+}
+
+initTable();
+
 module.exports = Mood;
