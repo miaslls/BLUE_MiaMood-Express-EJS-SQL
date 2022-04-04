@@ -65,7 +65,7 @@ const newMood = (req, res) => {
 const addMood = async (req, res) => {
     try {
         const mood = req.body;
-        validateInputs(mood);
+        // validateInputs(mood);
 
         await Mood.create(mood);
 
