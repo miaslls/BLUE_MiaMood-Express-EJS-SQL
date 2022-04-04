@@ -23,6 +23,11 @@
     <%- include ('components/moodToEdit'); %>
     <%- include ('components/editMood'); %>
     
+    <% } else if (mood_delete) { %>
+
+    <%- include ('components/moodToDelete'); %>
+    <%- include ('components/deleteMood'); %>
+
     <% } %>
     
   </main>

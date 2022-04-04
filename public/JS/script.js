@@ -30,3 +30,20 @@ for (let icon of navIconList) {
 
     });
 }
+
+// 📌 mood options
+
+const moodOptions = document.getElementsByClassName('mood_options');
+const moodContainer = document.getElementsByClassName('mood_container');
+
+for (let i = 0; i < moodContainer.length; i++) {
+    moodContainer[i].addEventListener('mouseenter', () => {
+        moodOptions[i].setAttribute('class', 'mood_options visible');
+    });
+}
+
+for (let i = 0; i < moodContainer.length; i++) {
+    moodContainer[i].addEventListener('mouseleave', () => {
+        moodOptions[i].setAttribute('class', 'mood_options');
+    });
+}

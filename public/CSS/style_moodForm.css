@@ -99,7 +99,7 @@ input {
 
 .btn_enabled:hover {
     transform: scale(1.2);
-    cursor: pointer!important;
+    cursor: pointer !important;
 }
 
 #btn_icon {

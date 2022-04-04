@@ -3,7 +3,7 @@
     <% moods.forEach((mood, index) => { %>
 
       <% if (index === 0 || (mood.date !== moods[index - 1].date)) { %>
-      <h2><%= mood.formattedDate_title %></h2>
+      <h2>----- <span class="title_date"><%= mood.formattedDate_title %></span></h2>
       <% } %>
 
       <% if (mood.text) { %>
@@ -21,8 +21,8 @@
       </div>
 
       <div class="mood_options">
-        <div class="editIcon"><a href="/getById/<%= mood.createdAt %>/put"></a></div>
-        <div class="deleteIcon"><a href="/getById/<%= mood.createdAt %>/delete"></a></div>
+        <div class="editIcon editDelete_icon"><a href="/getById/<%= mood.createdAt %>/put"></a></div>
+        <div class="deleteIcon editDelete_icon"><a href="/getById/<%= mood.createdAt %>/delete"></a></div>
       </div>
 
       <div class="mood_text">

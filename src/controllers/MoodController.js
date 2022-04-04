@@ -7,7 +7,6 @@ const getAll = async (req, res) => {
     try {
         let moods = await Mood.findAll();
         moods.sort((a, b) => b.timestamp - a.timestamp);
-
         moods = formatMood(moods);
 
         res.render('allMoods', { moods, icon_list, mood_put: null, mood_delete: null });
@@ -21,7 +20,6 @@ const getLatest = async (req, res) => {
     try {
         const allMoods = await Mood.findAll();
         allMoods.sort((a, b) => b.timestamp - a.timestamp);
-
         let moods = allMoods.slice(0, 7);
         moods = formatMood(moods);
 
@@ -35,9 +33,7 @@ const getLatest = async (req, res) => {
 const getById = async (req, res) => {
 
     try {
-
         const method = req.params.method;
-
         const mood = await Mood.findByPk(req.params.id);
 
         if (method === 'put') {
@@ -45,7 +41,6 @@ const getById = async (req, res) => {
         } else {
             res.render('index', { mood_put: null, mood_delete: mood, icon_list });
         }
-
     } catch (err) {
         res.redirect('/oops');
         console.log(err);
@@ -54,25 +49,31 @@ const getById = async (req, res) => {
 
 const newMood = (req, res) => {
     try {
-
         res.render('newMood', { icon_list });
     } catch (err) {
         res.redirect('/oops');
         console.log(err);
+    }
+}
 
+const remove = async (req, res) => {
+    try {
+        await Mood.destroy({ where: { createdAt: req.params.id } });
+        res.redirect('/');
+    }
+    catch (err) {
+        res.redirect('/oops');
+        console.log(err);
     }
 }
 
 const addMood = async (req, res) => {
     try {
         const mood = req.body;
-
         validateInputs(mood);
 
         await Mood.create(mood);
-        
         res.redirect('/');
-
     } catch (err) {
         res.redirect('/oops');
         console.log(err);
@@ -82,13 +83,9 @@ const addMood = async (req, res) => {
 const update = async (req, res) => {
     try {
         const mood = req.body;
-        await Mood.update(mood, {where: {createdAt: req.params.id}});
 
-        console.log(mood, req.params.id); // 🐞
-
+        await Mood.update(mood, { where: { createdAt: req.params.id } });
         res.redirect('/');
-
-
     } catch (err) {
         res.redirect('/oops');
         console.log(err);
@@ -121,7 +118,6 @@ const formatMoodDate_title = (mood) => {
     const year = mood.date.substr(0, 4);
     const month = Number(mood.date.substr(5, 2));
     const day = Number(mood.date.substr(8, 2));
-
     const monthList = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'semptember', 'october', 'november', 'december'];
 
     return `${monthList[month - 1]} ${day}, ${year}`;
@@ -150,7 +146,6 @@ const validateInputs = (mood) => {
 
     const validate_mood_id = (!mood.mood_id || isNaN(mood.mood_id) || mood.mood_id < 0 || mood.mood_id > 5);
     const validateForEmpty = (!mood.icon) || (!mood.date) || (!mood.time);
-
     const validate_timestamp = (!mood.timestamp || isNaN(mood.timestamp) || mood.timestamp.toString().length !== 14);
     const validate_createdAt = (!mood.createdAt || isNaN(mood.createdAt) || mood.createdAt.toString().length !== 14);
 
@@ -165,4 +160,4 @@ const oops = (req, res) => {
 
 const icon_list = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
 
-module.exports = { oops, getAll, getLatest, getById, newMood, addMood, update }
+module.exports = { oops, getAll, getLatest, getById, newMood, remove, addMood, update }
