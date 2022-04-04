@@ -12,10 +12,10 @@ A avaliação será feita por entregáveis obrigatórios, cada um valerá uma qu
 + Responsividade em todas as telas. (0,5) ✔
 + Criar a estilização das páginas. (1,0) ✔
 + Criar as rotas no arquivo INDEX.JS para controlar toda aplicação. (1,5) ✔
-+ Após cadastrar exibir mensagem de sucesso. (0,5)
++ Após cadastrar exibir mensagem de sucesso. (0,5) ✔
 + Respeitar o padrão MVC. (1,0) ✔
 + Github organizado do projeto com licença, Read.me preenchido falando do projeto e Gitignore correto. (0,5)
-+ Projeto postado no Heroku. (0,5)
++ Projeto postado no Heroku. (0,5) ✔
 
 + ## **APRESENTAÇÃO**
 
