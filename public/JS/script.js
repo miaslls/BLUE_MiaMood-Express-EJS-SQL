@@ -1,6 +1,6 @@
 'use strict';
 
-// 📌 nav bar
+// 📌 nav bar hover
 
 const navHint = document.getElementById('nav_hint');
 const navIconList = document.getElementsByClassName('nav_icon');
@@ -31,7 +31,7 @@ for (let icon of navIconList) {
     });
 }
 
-// 📌 mood options
+// 📌 mood options hover
 
 const moodOptions = document.getElementsByClassName('mood_options');
 const moodContainer = document.getElementsByClassName('mood_container');

@@ -218,9 +218,13 @@ div#delete_btns {
     gap: 2rem;
 }
 
-div#delete_btns a {
+#yesBtn, #noBtn {
     display: flex;
     align-items: center;
+}
+
+#noBtn {
+    opacity: 0.5;
 }
 
 /* 📌 */

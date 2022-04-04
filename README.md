@@ -11,7 +11,7 @@ A avaliação será feita por entregáveis obrigatórios, cada um valerá uma qu
 + Criar as telas EJS. (1,5) ✔
 + Responsividade em todas as telas. (0,5) ✔
 + Criar a estilização das páginas. (1,0) ✔
-+ Criar as rotas no arquivo INDEX.JS para controlar toda aplicação. (1,5)
++ Criar as rotas no arquivo INDEX.JS para controlar toda aplicação. (1,5) ✔
 + Após cadastrar exibir mensagem de sucesso. (0,5)
 + Respeitar o padrão MVC. (1,0) ✔
 + Github organizado do projeto com licença, Read.me preenchido falando do projeto e Gitignore correto. (0,5)
@@ -19,4 +19,13 @@ A avaliação será feita por entregáveis obrigatórios, cada um valerá uma qu
 
 + ## **APRESENTAÇÃO**
 
-💡 extract moodlist to partial
+💡 extract moodlist to partial ✔
+💡 calendar
+
+
+-----
+
+# REAL **ACTUAL** README
+
++ designed for desktop (best experience).  
++ reasonably adaptable to most screen sizes/devices.  
