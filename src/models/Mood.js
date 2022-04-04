@@ -42,7 +42,7 @@ const Mood = connection.define('mood', {
 });
 
 const initTable = async () => {
-    await Mood.sync()
+    await Mood.sync();
 }
 
 initTable();
