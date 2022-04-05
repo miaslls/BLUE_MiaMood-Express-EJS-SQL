@@ -1,4 +1,4 @@
-<section class="moodForm" id="editMood">
+<section class="moodForm" id="updateMood">
 
     <form action="/update/<%= mood_put.createdat %>" method="POST" id="newMood">
 
@@ -59,11 +59,11 @@
       <input type="hidden" name="timestamp" id="timestampInput" class="input" value="<%= mood_put.timestamp %>">
 
       <button class="btnEnabled mood_<%= mood_put.mood_id %>" id="addMoodBtn" type="submit">
-        edit<strong>Mood</strong>
+        update<strong>Mood</strong>
         <span class="icon" id="btnIcon"><%= mood_put.icon %></span>
       </button>
 
     </form>
   </section>
 
-<script src="/JS/script_editMood.js"></script>
+<script src="/JS/script_updateMood.js"></script>

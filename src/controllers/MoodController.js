@@ -16,7 +16,7 @@ const getAll = async (req, res) => {
 
         moods = formatMood(moods);
 
-        res.render('allMoods', { moods, iconList, mood_put: null, mood_delete: null });
+        res.render('allMoods', { moods, iconList });
     } catch (err) {
         res.redirect('/oops');
         console.log(err);
@@ -33,24 +33,7 @@ const getLatest = async (req, res) => {
         const flashMessages = req.flash('info');
         const message = flashMessages[flashMessages.length - 1];
 
-        res.render('index', { moods, iconList, mood_put: null, mood_delete: null, message });
-    } catch (err) {
-        res.redirect('/oops');
-        console.log(err);
-    }
-}
-
-const getById = async (req, res) => {
-
-    try {
-        const method = req.params.method;
-        const mood = await Mood.findByPk(req.params.id);
-
-        if (method === 'put') {
-            res.render('index', { mood_put: mood, mood_delete: null, iconList, message: null });
-        } else {
-            res.render('index', { mood_put: null, mood_delete: mood, iconList, message: null });
-        }
+        res.render('index', { moods, iconList, message });
     } catch (err) {
         res.redirect('/oops');
         console.log(err);
@@ -81,6 +64,17 @@ const addMood = async (req, res) => {
     }
 }
 
+const updateMood = async (req,res) => {
+    try {
+        const mood_put = await Mood.findByPk(req.params.id);
+
+        res.render('updateMood', { mood_put, iconList });
+    } catch (err) {
+        res.redirect('/oops');
+        console.log(err);
+    }
+}
+
 const update = async (req, res) => {
     try {
         const mood = req.body;
@@ -90,6 +84,17 @@ const update = async (req, res) => {
 
 
         res.redirect('/');
+    } catch (err) {
+        res.redirect('/oops');
+        console.log(err);
+    }
+}
+
+const deleteMood = async (req,res) => {
+    try {
+        const mood_delete = await Mood.findByPk(req.params.id);
+
+        res.render('deleteMood', { mood_delete, iconList });
     } catch (err) {
         res.redirect('/oops');
         console.log(err);
@@ -113,4 +118,4 @@ const remove = async (req, res) => {
 
 const iconList = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
 
-module.exports = { oops, getAll, getLatest, getById, newMood, remove, addMood, update }
+module.exports = { oops, getAll, getLatest, newMood, addMood, updateMood, update, deleteMood, remove }

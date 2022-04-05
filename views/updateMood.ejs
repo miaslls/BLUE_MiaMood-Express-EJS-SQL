@@ -11,25 +11,16 @@
 <body>
 
   <header>
-
-    <% if (message) { %>
-
-    <section id="message">
-      <span class="icon" id="messageIcon"></span>
-      <span id="messageText"><%= message %></span>
-    </section>
-
-    <% } %>
-
     <%- include('components/header'); %>
-    
   </header>
 
   <div class="spacer5"></div>
 
-
   <main>
-    <%- include ('components/moods'); %>
+
+    <%- include ('components/moodToUpdate'); %>
+    <%- include ('components/UpdateMood'); %>
+
   </main>
 
   <%- include('components/footer'); %>
