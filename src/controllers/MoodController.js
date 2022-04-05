@@ -2,7 +2,12 @@
 
 const res = require('express/lib/response');
 const Mood = require('../models/Mood');
-let message = null;
+const formatMood = require('../util/formatMood');
+const validateInputs = require('../util/validateInputs');
+
+const oops = (req, res) => {
+    res.render('oops');
+}
 
 const getAll = async (req, res) => {
     try {
@@ -10,9 +15,9 @@ const getAll = async (req, res) => {
         moods.sort((a, b) => b.timestamp - a.timestamp);
         moods = formatMood(moods);
 
-        res.render('allMoods', { moods, icon_list, mood_put: null, mood_delete: null, message });
+        res.render('allMoods', { moods, icon_list, mood_put: null, mood_delete: null });
     } catch (err) {
-        res.redirect('/oops', { message });
+        res.redirect('/oops');
         console.log(err);
     }
 }
@@ -20,14 +25,13 @@ const getAll = async (req, res) => {
 const getLatest = async (req, res) => {
     try {
 
-        setTimeout(() => {
-            message = null;
-        }, 1000);
-
         const allMoods = await Mood.findAll();
         allMoods.sort((a, b) => b.timestamp - a.timestamp);
         let moods = allMoods.slice(0, 7);
         moods = formatMood(moods);
+
+        const flashMessages = req.flash('info');
+        const message = flashMessages[flashMessages.length - 1];
 
         res.render('index', { moods, icon_list, mood_put: null, mood_delete: null, message });
     } catch (err) {
@@ -43,9 +47,9 @@ const getById = async (req, res) => {
         const mood = await Mood.findByPk(req.params.id);
 
         if (method === 'put') {
-            res.render('index', { mood_put: mood, mood_delete: null, icon_list, message });
+            res.render('index', { mood_put: mood, mood_delete: null, icon_list, message: null });
         } else {
-            res.render('index', { mood_put: null, mood_delete: mood, icon_list, message });
+            res.render('index', { mood_put: null, mood_delete: mood, icon_list, message: null });
         }
     } catch (err) {
         res.redirect('/oops');
@@ -55,7 +59,7 @@ const getById = async (req, res) => {
 
 const newMood = (req, res) => {
     try {
-        res.render('newMood', { icon_list, message });
+        res.render('newMood', { icon_list });
     } catch (err) {
         res.redirect('/oops');
         console.log(err);
@@ -68,8 +72,8 @@ const addMood = async (req, res) => {
         validateInputs(mood);
 
         await Mood.create(mood);
+        req.flash('info', 'Mood CREATED');
 
-        message = 'Mood CREATED';
         res.redirect('/');
     } catch (err) {
         res.redirect('/oops');
@@ -82,8 +86,9 @@ const update = async (req, res) => {
         const mood = req.body;
 
         await Mood.update(mood, { where: { createdat: req.params.id } });
+        req.flash('info', 'Mood UPDATED');
 
-        message = 'Mood UPDATED';
+
         res.redirect('/');
     } catch (err) {
         res.redirect('/oops');
@@ -94,8 +99,8 @@ const update = async (req, res) => {
 const remove = async (req, res) => {
     try {
         await Mood.destroy({ where: { createdat: req.params.id } });
+        req.flash('info', 'Mood DESTROYED');
 
-        message = 'Mood DESTROYED';
         res.redirect('/');
     }
     catch (err) {
@@ -104,71 +109,7 @@ const remove = async (req, res) => {
     }
 }
 
-// 📌 formatting
-
-const formatMood = (moodList) => {
-
-    for (let mood of moodList) {
-        mood.formattedDate_text = formatMoodDate_text(mood);
-        mood.formattedDate_title = formatMoodDate_title(mood);
-        mood.formattedTime = formatMoodTime(mood);
-    }
-    return moodList;
-}
-
-const formatMoodDate_text = (mood) => {
-
-    const year = mood.date.substr(0, 4);
-    const month = mood.date.substr(5, 2);
-    const day = mood.date.substr(8, 2);
-
-    return `${day}.${month}.${year}`;
-}
-
-const formatMoodDate_title = (mood) => {
-
-    const year = mood.date.substr(0, 4);
-    const month = Number(mood.date.substr(5, 2));
-    const day = Number(mood.date.substr(8, 2));
-    const monthList = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'semptember', 'october', 'november', 'december'];
-
-    return `${monthList[month - 1]} ${day}, ${year}`;
-}
-
-const formatMoodTime = (mood) => {
-
-    let hours = Number(mood.time.substr(0, 2));
-    const minutes = mood.time.substr(3, 2);
-    const seconds = mood.time.substr(6, 2);
-    let amPm = 'am';
-
-    if (hours === 12) {
-        amPm = 'pm';
-    } else if (hours > 12) {
-        hours -= 12;
-        amPm = 'pm';
-    }
-
-    return hours.toString().padStart(2, '0') + ':' + minutes + ':' + seconds + amPm;
-}
-
-// 📌 validation
-
-const validateInputs = (mood) => {
-
-    const validate_mood_id = (!mood.mood_id || isNaN(mood.mood_id) || mood.mood_id < 0 || mood.mood_id > 6);
-    const validateForEmpty = (!mood.icon) || (!mood.date) || (!mood.time);
-    const validate_timestamp = (!mood.timestamp || isNaN(mood.timestamp) || mood.timestamp.toString().length !== 14);
-    const validate_createdat = (!mood.createdat || isNaN(mood.createdat) || mood.createdat.toString().length !== 14);
-
-    if ((!mood) || (validate_mood_id) || (validateForEmpty) || validate_timestamp || validate_createdat) {
-        res.redirect('/oops');
-    }
-}
-
-const oops = (req, res) => {
-    res.render('oops', { message });
-}
+// 📌
 
 const icon_list = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
 

@@ -10,7 +10,23 @@
 
 <body>
 
-  <%- include('components/header'); %>
+  <header>
+
+    <% if (message) { %>
+
+    <section id="message">
+      <span class="icon" id="message_icon"></span>
+      <span id="message_text"><%= message %></span>
+    </section>
+
+    <% } %>
+
+    <%- include('components/header'); %>
+    
+  </header>
+
+  <div class="spacer-5"></div>
+
 
   <main>
 
@@ -22,14 +38,14 @@
 
     <%- include ('components/moodToEdit'); %>
     <%- include ('components/editMood'); %>
-    
+
     <% } else if (mood_delete) { %>
 
     <%- include ('components/moodToDelete'); %>
     <%- include ('components/deleteMood'); %>
 
     <% } %>
-    
+
   </main>
 
   <%- include('components/footer'); %>
