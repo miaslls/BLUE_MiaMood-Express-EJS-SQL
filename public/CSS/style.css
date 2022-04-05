@@ -160,6 +160,8 @@ article.moodContainer {
 }
 
 .titleDate {
+    width: 100%;
+    text-align: lwft;
     font-weight: 400;
 }
 
@@ -306,7 +308,16 @@ section#oops p {
         width: 50%;
         overflow-y: auto;
         overflow-x: hidden;
+        transform: scaleX(-1);
     }
+
+    section#moods > *,
+    section#editMood > *,
+    section#deleteMood > *,
+    section#oops > * {
+        transform: scaleX(-1);
+    }
+
     section#moods, #oops {
         padding-right: 2.5%;
     }
@@ -324,12 +335,12 @@ section#oops p {
         opacity: 0.75 !important;
     }
     
-    .editDeleteIcon {
+    .updateDeleteIcon {
         transition: all 0.25s;
     }
     
-    .editDeleteIcon:hover {
-        transform: scale(1.3);
+    .updateDeleteIcon:hover {
+        transform: scale(1.5);
     }
 
     div#deleteBtns {

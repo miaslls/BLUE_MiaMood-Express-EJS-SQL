@@ -22,12 +22,55 @@ A avaliação será feita por entregáveis obrigatórios, cada um valerá uma qu
 💡 extract moodlist to partial ✔  
 💡 calendar  
 💡 extra icon options  
-💡 add mood hint on hover (forms)  
+💡 add mood hint on hover (forms)
 
+&ensp;&ensp;
+&ensp;&ensp;
 
 -----
 
-# REAL **ACTUAL** README
+![image](/public/IMG/logo.png)
+# [MiaMood](https://miamood.herokuapp.com/)
 
-+ designed for desktop (best experience).  
-+ reasonably adaptable to most screen sizes/devices.  
+Projeto MVC desenvolvido utilizando Express, EJS, Postgrese Sequelize.  
+
++ permite o registro, atualização e deleção de entradas.  
++ projetado para desktop (melhor experiência).  
++ razoavelmente adaptável à maioria das telas.  
+
+&ensp;&ensp;
+&ensp;&ensp;
+
+## ROTAS
+
+-----
+
+**GET**           |&ensp;&ensp;view
+---|---
+'/'               |&ensp;&ensp;mood/LATEST  
+'/allMoods'       |&ensp;&ensp;mood/ALL  
+'/newMood'        |&ensp;&ensp;mood/NEW  
+'/updateMood/:id' |&ensp;&ensp;mood/UPDATE  
+'/deleteMood/:id' |&ensp;&ensp;mood/DELETE  
+'/oops'           |&ensp;&ensp;OOPS (error)
+'/remove/:id'     |&ensp;&ensp;***
+
+**POST**          |&ensp;&ensp;
+---|---
+/add'             |&ensp;&ensp;
+'/update/:id'     |&ensp;&ensp;
+
+&ensp;&ensp;
+&ensp;&ensp;
+
+## RECURSOS
+
+-----
+
+🔗 |&ensp;&ensp;
+---|---
+[Adobe Fonts](https://fonts.adobe.com/fonts/brother-1816) |&ensp;&ensp;fonte
+[Remix Icon](https://remixicon.com/) |&ensp;&ensp;ícones
+[npm connect-flash](https://www.npmjs.com/package/connect-flash) |&ensp;&ensp;confirmation messages
+[npm cookie-session](https://www.npmjs.com/package/cookie-session) |&ensp;&ensp;confirmation messages
+

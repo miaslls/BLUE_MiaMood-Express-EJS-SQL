@@ -3,7 +3,7 @@
     <% moods.forEach((mood, index) => { %>
 
       <% if (index === 0 || (mood.date !== moods[index - 1].date)) { %>
-      <h2>----- <span class="titleDate"><%= mood.formattedDateTitle %></span></h2>
+      <h2 class="titleDate">----- <%= mood.formattedDateTitle %></h2>
       <% } %>
 
       <% if (mood.text) { %>
