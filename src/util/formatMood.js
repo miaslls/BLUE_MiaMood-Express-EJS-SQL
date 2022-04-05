@@ -3,14 +3,14 @@
 const formatMood = (moodList) => {
 
     for (let mood of moodList) {
-        mood.formattedDate_text = formatMoodDate_text(mood);
-        mood.formattedDate_title = formatMoodDate_title(mood);
+        mood.formattedDateText = formatMoodDateText(mood);
+        mood.formattedDateTitle = formatMoodDateTitle(mood);
         mood.formattedTime = formatMoodTime(mood);
     }
     return moodList;
 }
 
-const formatMoodDate_text = (mood) => {
+const formatMoodDateText = (mood) => {
 
     const year = mood.date.substr(0, 4);
     const month = mood.date.substr(5, 2);
@@ -19,7 +19,7 @@ const formatMoodDate_text = (mood) => {
     return `${day}.${month}.${year}`;
 }
 
-const formatMoodDate_title = (mood) => {
+const formatMoodDateTitle = (mood) => {
 
     const year = mood.date.substr(0, 4);
     const month = Number(mood.date.substr(5, 2));

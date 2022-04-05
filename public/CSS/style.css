@@ -1,4 +1,4 @@
-/* 👁‍🗨 delete unused fonts */
+/* 👁‍🗨 delete unused fonts */ 
 
 @import url("https://use.typekit.net/jit4tes.css");
 
@@ -95,7 +95,7 @@ header {
     100% { opacity: 0; }
 }
 
-#message_text {
+#messageText {
     font-size: smaller;
     font-weight: lighter;
 }
@@ -112,16 +112,16 @@ nav {
     display: flex;
 }
 
-.nav_icon {
+.navIcon {
     transition: all 0.15s;
 }
 
-.nav_icon:hover {
+.navIcon:hover {
     transform: scale(1.5);
     cursor: pointer;
 }
 
-#nav-hint {
+#navHint {
     font-size: 0.75rem;
     font-weight: 300;
 }
@@ -135,7 +135,7 @@ main {
     overflow-x: hidden;
 }
 
-.spacer-5 {
+.spacer5 {
     height: 5%;
 }
 
@@ -152,28 +152,28 @@ section#moods {
     overflow-x: hidden;
 }
 
-article.mood_container {
+article.moodContainer {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 }
 
-.title_date {
+.titleDate {
     font-weight: 400;
 }
 
-.mood_icon {
+.moodIcon {
     margin-right: 0.5rem;
     font-size: 1.25rem;
 }
 
-.mood_timestamp {
+.moodTimestamp {
     width: calc(100% - 5rem);
     font-size: 0.75rem;
 }
 
-.mood_text {
+.moodText {
     width: 100%;
     padding-left: 1.75rem;
     font-family: brother-1816-printed, sans-serif;
@@ -181,7 +181,7 @@ article.mood_container {
     font-weight: 200;
 }
 
-.mood_options {
+.moodOptions {
     width: 3rem;
     display: flex;
     justify-content: flex-end;
@@ -238,14 +238,14 @@ section#deleteMood p {
     font-weight: lighter;
 }
 
-div#delete_btns {
+div#deleteBtns {
     margin: 1rem;
     display: flex;
     justify-content: flex-end;
     gap: 2rem;
 }
 
-#delete_btns a {
+#deleteBtns a {
     display: flex;
     align-items: center;
 }
@@ -316,7 +316,7 @@ section#oops p {
         padding: 0 2.5%;
     }
 
-    .mood_options {
+    .moodOptions {
         opacity: 0;
     }
 
@@ -324,16 +324,15 @@ section#oops p {
         opacity: 0.75 !important;
     }
     
-    .editDelete_icon {
+    .editDeleteIcon {
         transition: all 0.25s;
     }
     
-    .editDelete_icon:hover {
+    .editDeleteIcon:hover {
         transform: scale(1.3);
     }
 
-    div#delete_btns {
+    div#deleteBtns {
         justify-content: center;
     }
-    
 }

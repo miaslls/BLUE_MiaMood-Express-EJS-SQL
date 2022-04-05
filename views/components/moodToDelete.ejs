@@ -1,20 +1,20 @@
 <section id="moods">
 
       <% if (mood_delete.text) { %>
-        <article class="mood_container note_mood mood_<%= mood_delete.mood_id %>">
+        <article class="moodContainer noteMood mood_<%= mood_delete.mood_id %>">
       <% } else { %>
-        <article class="mood_container mood_<%= mood_delete.mood_id %>">
+        <article class="moodContainer mood_<%= mood_delete.mood_id %>">
       <% } %>
 
-      <div class="icon mood_icon">
+      <div class="icon moodIcon">
         <%= mood_delete.icon %>
       </div>
 
-      <div class="mood_timestamp">
+      <div class="moodTimestamp">
         <span class="date"><%= mood_delete.date %></span> @ <span class="time"><%= mood_delete.time %></span>
       </div>
 
-      <div class="mood_text">
+      <div class="moodText">
         <%= mood_delete.text %>
       </div>
 

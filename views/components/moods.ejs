@@ -3,29 +3,29 @@
     <% moods.forEach((mood, index) => { %>
 
       <% if (index === 0 || (mood.date !== moods[index - 1].date)) { %>
-      <h2>----- <span class="title_date"><%= mood.formattedDate_title %></span></h2>
+      <h2>----- <span class="titleDate"><%= mood.formattedDateTitle %></span></h2>
       <% } %>
 
       <% if (mood.text) { %>
-        <article class="mood_container note_mood mood_<%= mood.mood_id %>">
+        <article class="moodContainer note_mood mood_<%= mood.mood_id %>">
       <% } else { %>
-        <article class="mood_container mood_<%= mood.mood_id %>">
+        <article class="moodContainer mood_<%= mood.mood_id %>">
       <% } %>
 
-      <div class="icon mood_icon">
+      <div class="icon moodIcon">
         <%= mood.icon %>
       </div>
 
-      <div class="mood_timestamp">
-        <span class="date"><%= mood.formattedDate_text %></span> @ <span class="time"><%= mood.formattedTime %></span>
+      <div class="moodTimestamp">
+        <span class="date"><%= mood.formattedDateText %></span> @ <span class="time"><%= mood.formattedTime %></span>
       </div>
 
-      <div class="mood_options">
-        <div class="icon editIcon editDelete_icon"><a href="/getById/<%= mood.createdat %>/put"></a></div>
-        <div class="icon deleteIcon editDelete_icon"><a href="/getById/<%= mood.createdat %>/delete"></a></div>
+      <div class="moodOptions">
+        <div class="icon editIcon editDeleteIcon"><a href="/getById/<%= mood.createdat %>/put"></a></div>
+        <div class="icon deleteIcon editDeleteIcon"><a href="/getById/<%= mood.createdat %>/delete"></a></div>
       </div>
 
-      <div class="mood_text">
+      <div class="moodText">
         <%= mood.text %>
       </div>
 

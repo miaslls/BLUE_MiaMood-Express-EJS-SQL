@@ -1,32 +1,32 @@
 'use strict';
 
-const mood_id_input = document.getElementById('mood_id-input');
-const icon_input = document.getElementById('icon-input');
+const mood_idInput = document.getElementById('mood_idInput');
+const iconInput = document.getElementById('iconInput');
 
-const button = document.getElementById('addMood_btn');
-const btn_icon = document.getElementById('btn_icon');
+const button = document.getElementById('addMoodBtn');
+const btnIcon = document.getElementById('btnIcon');
 
 // 📌
 
-const default_iconList = document.getElementsByClassName('mood-icon default');
+const defaultIconList = document.getElementsByClassName('moodIcon default');
 
-for (let moodIcon of default_iconList) {
+for (let moodIcon of defaultIconList) {
 
     moodIcon.addEventListener('click', () => {
 
-        mood_id_input.value = moodIcon.id;
-        icon_input.value = moodIcon.innerText;
+        mood_idInput.value = moodIcon.id;
+        iconInput.value = moodIcon.innerText;
 
         button.disabled = false;
-        button.setAttribute('class', `mood_${moodIcon.id} btn_enabled`);
-        btn_icon.innerText = moodIcon.innerText;
+        button.setAttribute('class', `mood_${moodIcon.id} btnEnabled`);
+        btnIcon.innerText = moodIcon.innerText;
     });
 }
 
 // 📌
 
-const date_input = document.getElementById('date-input');
-const time_input = document.getElementById('time-input');
+const dateInput = document.getElementById('dateInput');
+const timeInput = document.getElementById('timeInput');
 
 const today = new Date();
 
@@ -42,52 +42,52 @@ const seconds = today.getSeconds().toString().padStart(2, "0");
 
 const time = `${hours}:${minutes}:${seconds}`;
 
-date_input.value = date;
-time_input.value = time;
+dateInput.value = date;
+timeInput.value = time;
 
 // 📌
 
-const createdat_input = document.getElementById('createdat-input');
-const timestamp_input = document.getElementById('timestamp-input');
+const createdatInput = document.getElementById('createdatInput');
+const timestampInput = document.getElementById('timestampInput');
 
-createdat_input.value = `${year}${month}${day}${hours}${minutes}${seconds}`;
-timestamp_input.value = `${year}${month}${day}${hours}${minutes}${seconds}`;
+createdatInput.value = `${year}${month}${day}${hours}${minutes}${seconds}`;
+timestampInput.value = `${year}${month}${day}${hours}${minutes}${seconds}`;
 
-date_input.addEventListener('input', (e) => {
+dateInput.addEventListener('input', (e) => {
 
     const newYear = (e.target.value).substr(0,4);
     const newMonth = (e.target.value).substr(5,2);
     const newDay = (e.target.value).substr(8,2);
 
-    time_input.value = '00:00:00';
+    timeInput.value = '00:00:00';
 
-    timestamp_input.value = `${newYear}${newMonth}${newDay}000000`;
+    timestampInput.value = `${newYear}${newMonth}${newDay}000000`;
 });
 
-time_input.addEventListener('input', (e) => {
+timeInput.addEventListener('input', (e) => {
 
     const newHours = (e.target.value).substr(0,2);
     const newMinutes = (e.target.value).substr(3,2);
     const newSeconds = (e.target.value).substr(3,2);
-    const selectedYear = (date_input.value).substr(0,4);
-    const selectedMonth = (date_input.value).substr(5,2);
-    const selectedDay = (date_input.value).substr(8,2);
+    const selectedYear = (dateInput.value).substr(0,4);
+    const selectedMonth = (dateInput.value).substr(5,2);
+    const selectedDay = (dateInput.value).substr(8,2);
     
-    timestamp_input.value = `${selectedYear}${selectedMonth}${selectedDay}${newHours}${newMinutes}${newSeconds}`;
+    timestampInput.value = `${selectedYear}${selectedMonth}${selectedDay}${newHours}${newMinutes}${newSeconds}`;
 });
 
 
 
 // 📌
 
-const custom_iconList = document.getElementsByClassName('mood-icon custom');
+const customIconList = document.getElementsByClassName('moodIcon custom');
 
-for (let customIcon of custom_iconList) {
+for (let customIcon of customIconList) {
 
     customIcon.addEventListener('click', () => {
 
-        icon_input.value = customIcon.innerText;
-        btn_icon.innerText = customIcon.innerText;
+        iconInput.value = customIcon.innerText;
+        btnIcon.innerText = customIcon.innerText;
 
     });
 }

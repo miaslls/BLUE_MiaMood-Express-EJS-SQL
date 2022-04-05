@@ -2,8 +2,8 @@
 
 // 📌 nav bar hover
 
-const navHint = document.getElementById('nav_hint');
-const navIconList = document.getElementsByClassName('nav_icon');
+const navHint = document.getElementById('navHint');
+const navIconList = document.getElementsByClassName('navIcon');
 
 for (let icon of navIconList) {
 
@@ -33,17 +33,17 @@ for (let icon of navIconList) {
 
 // 📌 mood options hover
 
-const moodOptions = document.getElementsByClassName('mood_options');
-const moodContainer = document.getElementsByClassName('mood_container');
+const moodOptions = document.getElementsByClassName('moodOptions');
+const moodContainer = document.getElementsByClassName('moodContainer');
 
 for (let i = 0; i < moodContainer.length; i++) {
     moodContainer[i].addEventListener('mouseenter', () => {
-        moodOptions[i].setAttribute('class', 'mood_options visible');
+        moodOptions[i].setAttribute('class', 'moodOptions visible');
     });
 }
 
 for (let i = 0; i < moodContainer.length; i++) {
     moodContainer[i].addEventListener('mouseleave', () => {
-        moodOptions[i].setAttribute('class', 'mood_options');
+        moodOptions[i].setAttribute('class', 'moodOptions');
     });
 }

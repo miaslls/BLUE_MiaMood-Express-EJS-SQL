@@ -15,7 +15,7 @@ const getAll = async (req, res) => {
         moods.sort((a, b) => b.timestamp - a.timestamp);
         moods = formatMood(moods);
 
-        res.render('allMoods', { moods, icon_list, mood_put: null, mood_delete: null });
+        res.render('allMoods', { moods, iconList, mood_put: null, mood_delete: null });
     } catch (err) {
         res.redirect('/oops');
         console.log(err);
@@ -33,7 +33,7 @@ const getLatest = async (req, res) => {
         const flashMessages = req.flash('info');
         const message = flashMessages[flashMessages.length - 1];
 
-        res.render('index', { moods, icon_list, mood_put: null, mood_delete: null, message });
+        res.render('index', { moods, iconList, mood_put: null, mood_delete: null, message });
     } catch (err) {
         res.redirect('/oops');
         console.log(err);
@@ -47,9 +47,9 @@ const getById = async (req, res) => {
         const mood = await Mood.findByPk(req.params.id);
 
         if (method === 'put') {
-            res.render('index', { mood_put: mood, mood_delete: null, icon_list, message: null });
+            res.render('index', { mood_put: mood, mood_delete: null, iconList, message: null });
         } else {
-            res.render('index', { mood_put: null, mood_delete: mood, icon_list, message: null });
+            res.render('index', { mood_put: null, mood_delete: mood, iconList, message: null });
         }
     } catch (err) {
         res.redirect('/oops');
@@ -59,7 +59,7 @@ const getById = async (req, res) => {
 
 const newMood = (req, res) => {
     try {
-        res.render('newMood', { icon_list });
+        res.render('newMood', { iconList });
     } catch (err) {
         res.redirect('/oops');
         console.log(err);
@@ -111,6 +111,6 @@ const remove = async (req, res) => {
 
 // 📌
 
-const icon_list = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+const iconList = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
 
 module.exports = { oops, getAll, getLatest, getById, newMood, remove, addMood, update }
