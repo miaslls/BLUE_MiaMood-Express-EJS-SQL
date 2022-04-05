@@ -5,14 +5,15 @@ const Mood = require('../models/Mood');
 const formatMood = require('../util/formatMood');
 const validateInputs = require('../util/validateInputs');
 
+
 const oops = (req, res) => {
     res.render('oops');
 }
 
 const getAll = async (req, res) => {
     try {
-        let moods = await Mood.findAll();
-        moods.sort((a, b) => b.timestamp - a.timestamp);
+        let moods = await Mood.findAll({ order: [['timestamp', 'DESC']] });
+
         moods = formatMood(moods);
 
         res.render('allMoods', { moods, iconList, mood_put: null, mood_delete: null });
@@ -25,9 +26,8 @@ const getAll = async (req, res) => {
 const getLatest = async (req, res) => {
     try {
 
-        const allMoods = await Mood.findAll();
-        allMoods.sort((a, b) => b.timestamp - a.timestamp);
-        let moods = allMoods.slice(0, 7);
+        let moods = await Mood.findAll({order: [['timestamp', 'DESC']], limit: 7});
+
         moods = formatMood(moods);
 
         const flashMessages = req.flash('info');
