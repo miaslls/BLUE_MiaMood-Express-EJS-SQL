@@ -5,7 +5,7 @@ const Mood = require('../models/Mood');
 const { formatMood, formatMoods } = require('../util/formatMoods');
 const validateInputs = require('../util/validateInputs');
 
-const getLatest = async (req, res) => {
+const moodToday = async (req, res) => {
     try {
 
         const today = new Date();
@@ -17,8 +17,6 @@ const getLatest = async (req, res) => {
         const dateToday = `${year}-${month}-${day}`;
 
         let moods = await Mood.findAll({ order: [['timestamp', 'DESC']], where: { date: dateToday } });
-
-        console.log(moods[0]); // 🐞
 
         if (!moods[0]) {
             res.render('noMood');
@@ -37,7 +35,7 @@ const getLatest = async (req, res) => {
     }
 }
 
-const getAll = async (req, res) => {
+const moodAll = async (req, res) => {
     try {
         let moods = await Mood.findAll({ order: [['timestamp', 'DESC']] });
 
@@ -131,4 +129,4 @@ const destroy = async (req, res) => {
 
 const iconList = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
 
-module.exports = { getAll, getLatest, newMood, addMood, updateMood, update, destroyMood, destroy }
+module.exports = { moodAll, moodToday, newMood, addMood, updateMood, update, destroyMood, destroy }
