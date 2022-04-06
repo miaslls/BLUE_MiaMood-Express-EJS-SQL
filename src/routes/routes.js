@@ -15,6 +15,6 @@ routes.post('/update/:id', MoodController.update);
 routes.get('/destroyMood/:id', MoodController.destroyMood);
 routes.get('/destroy/:id', MoodController.destroy);
 
-routes.get('oops', MoodController.oops);
+routes.get('/oops', MoodController.oops);
 
 module.exports = routes;
