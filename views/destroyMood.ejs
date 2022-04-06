@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <%- include ('components/head'); %>
+
+  <title>MiaMood | DESTROY</title>
+
+</head>
+
+<body>
+
+  <div class="horizontalSpacer"></div>
+
+  <%- include ('components/header'); %>
+
+  <div id="containerA">
+
+    <aside id="pageTitle">
+
+      <h2>mood/<span>DESTROY</span></h2>
+
+    </aside>
+
+    <section id="contentA">
+
+      <article class="updateDestroy moodContainer mood_<%= mood_delete.mood_id %>">
+
+        <div class="icon moodIcon">
+          <%= mood_delete.icon %>
+        </div>
+
+        <div class="moodTimestamp">
+          <span class="date"><%= mood_delete.formattedDateText %></span> @ <span class="time"><%= mood_delete.formattedTime %></span>
+        </div>
+
+        <div class="moodOptions">
+          <div class="icon updateIcon updateDeleteIcon"><a href="/updateMood/<%= mood_delete.createdat %>"></a></div>
+          <div class="icon deleteIcon updateDeleteIcon"><a href="/destroyMood/<%= mood_delete.createdat %>"></a></div>
+        </div>
+
+        <div class="moodText">
+          <%= mood_delete.text %>
+        </div>
+
+      </article>
+
+    </section>
+
+  </div>
+
+  <div id="containerB">
+
+    <section id="deleteMood">
+
+      <h2>delete<strong>Mood</strong></h2>
+
+      <p>are you sure you wanna do that? you can't reverse time after it...</p>
+
+      <div id="deleteBtns">
+
+        <span id="noBtn"><a href="/" target="_self"><span class="icon" id="noIcon"></span>NOPE</strong></a></span>
+
+        <span id="yesBtn"><a href="/destroy/<%= mood_delete.createdat %>" target="_self"><span class="icon" id="yesIcon"></span><strong>YEET</strong>&nbsp;it</a></span>
+
+      </div>
+
+    </section>
+
+
+  </div>
+
+  <script src="/JS/script.js"></script>
+  <script src="/JS/updateMood_script.js"></script>
+
+</body>
+
+</html>

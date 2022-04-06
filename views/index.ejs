@@ -2,15 +2,16 @@
 <html lang="en">
 
 <head>
+  
+  <%- include ('components/head'); %>
 
-  <%- include('components/head'); %>
+  <title>MiaMood | LATEST</title>
 
-  <title>MiaMood</title>
 </head>
 
 <body>
 
-  <header>
+  <div class="horizontalSpacer">
 
     <% if (message) { %>
 
@@ -21,18 +22,33 @@
 
     <% } %>
 
-    <%- include('components/header'); %>
-    
-  </header>
+  </div>
 
-  <div class="spacer5"></div>
+  <%- include ('components/header'); %>
+
+  <div id="containerA">
+
+    <aside id="pageTitle">
+
+      <h2>mood/<span>LATEST</span></h2>
+
+    </aside>
+
+    <section id="contentA">
+
+      <%- include ('components/moods'); %>
+
+    </section>
+
+  </div>
+
+  <div id="containerB">
 
 
-  <main>
-    <%- include ('components/moods'); %>
-  </main>
 
-  <%- include('components/footer'); %>
+  </div>
+
+  <script src="/JS/script.js"></script>
 
 </body>
 

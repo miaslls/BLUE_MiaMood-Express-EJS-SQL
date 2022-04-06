@@ -2,31 +2,69 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <%- include('components/head'); %>
+  <link rel="stylesheet" href="/CSS/newLayout_style.css">
+  <link rel="icon" href="/IMG/favicon.png">
 
-  <title>MiaMood</title>
+
+  <title>MiaMood | ALL</title>
+
 </head>
 
 <body>
 
+  <div class="horizontalSpacer"></div>
+
   <header>
-    <%- include('components/header'); %>
+
+    <h1>Mia<span>Mood</span></h1>
+
+    <nav>
+
+      <div id="navIcons">
+        <span class="icon navIcon" id="latestMoods"><a href="/" target="_self"></a></span>
+        <span class="icon navIcon" id="calendar"><a href="/byDate" target="_self"></a></span>
+        <span class="icon navIcon" id="allMoods"><a href="/allMoods" target="_self"></a></span>
+        <span class="icon navIcon" id="newMood"><a href="/newMood" target="_self"></a></span>
+      </div>
+
+      <div id="navHint"></div>
+
+    </nav>
   </header>
 
-  <div class="spacer5"></div>
+  <div id="containerA">
 
-  <main>
+    <aside id="pageTitle">
 
-    <section id="oops">
+      <h2>mood/<span>OOPS</span></h2>
+
+    </aside>
+
+    <section id="contentA">
+
+      <section id="oops">
+
         <h2>OH<strong>FUCK</strong>!</h2>
+
         <p>something that shouldn't have happened... happened.</p>
-        <a href="/" target="_self"><h3><a href="/" target="_self">go<strong>HOME</strong><span class="icon" id="homeIcon"></span></a></h3></a>
+
+        <a href="/" target="_self"><a href="/" target="_self">go<strong>HOME</strong><span class="icon" id="homeIcon"></span></a></a>
+        
     </section>
 
-  </main>
+    </section>
 
-  <%- include('components/footer'); %>
+  </div>
+
+  <div id="containerB">
+
+  </div>
+
+  <script src="/JS/script.js"></script>
 
 </body>
 

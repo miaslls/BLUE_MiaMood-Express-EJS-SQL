@@ -1,13 +1,17 @@
 'use strict';
 
-const formatMood = (moodList) => {
+const formatMood = (mood) => {
+
+    mood.formattedDateText = formatMoodDateText(mood);
+    mood.formattedDateTitle = formatMoodDateTitle(mood);
+    mood.formattedTime = formatMoodTime(mood);
+}
+
+const formatMoods = (moodList) => {
 
     for (let mood of moodList) {
-        mood.formattedDateText = formatMoodDateText(mood);
-        mood.formattedDateTitle = formatMoodDateTitle(mood);
-        mood.formattedTime = formatMoodTime(mood);
+        formatMood(mood);
     }
-    return moodList;
 }
 
 const formatMoodDateText = (mood) => {
@@ -46,4 +50,4 @@ const formatMoodTime = (mood) => {
     return hours.toString().padStart(2, '0') + ':' + minutes + ':' + seconds + amPm;
 }
 
-module.exports = formatMood;
+module.exports = { formatMood, formatMoods };

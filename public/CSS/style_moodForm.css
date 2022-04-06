@@ -1,7 +1,3 @@
-section#moodForm { 
-    width: 100%;
-}
-
 form {
     width: 100%;
     display: flex;
@@ -91,23 +87,24 @@ input {
     margin-left: 0.5rem;
 }
 
+.moodIcon:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+#addMoodBtn:hover {
+    cursor: not-allowed;
+}
+
+.btnEnabled:hover {
+    transform: scale(1.2);
+    cursor: pointer !important;
+}
+
 @media screen and (min-width: 700px) {
 
-    section {
-        width: 45%;
+    form {
+        margin-top: 1rem;
     }
 
-    .moodIcon:hover {
-        transform: scale(1.5);
-        cursor: pointer;
-    }
-
-    #addMoodBtn:hover {
-        cursor: not-allowed;
-    }
-
-    .btnEnabled:hover {
-        transform: scale(1.2);
-        cursor: pointer !important;
-    }
 }

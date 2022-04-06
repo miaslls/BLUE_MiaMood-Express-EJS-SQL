@@ -2,27 +2,41 @@
 <html lang="en">
 
 <head>
+  <%- include ('components/head'); %>
 
-  <%- include('components/head'); %>
+  <title>MiaMood | ALL</title>
 
-  <title>MiaMood</title>
 </head>
 
 <body>
 
-  <header>
-    <%- include('components/header'); %>
-  </header>
+  <div class="horizontalSpacer"></div>
 
-  <div class="spacer5"></div>
+  <%- include ('components/header'); %>
 
-  <main>
-    <%- include ('components/moods'); %>
-  </main>
+  <div id="containerA">
 
-  <%- include('components/footer'); %>
+    <aside id="pageTitle">
 
-  <script src="/JS/script_allMoods.js"></script>
+      <h2>mood/<span>ALL</span></h2>
+
+    </aside>
+
+    <section id="contentA">
+
+      <%- include ('components/moods'); %>
+
+    </section>
+
+  </div>
+
+  <div id="containerB">
+
+
+
+  </div>
+
+  <script src="/JS/script.js"></script>
 
 </body>
 

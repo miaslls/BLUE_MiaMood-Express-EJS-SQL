@@ -2,94 +2,104 @@
 <html lang="en">
 
 <head>
+ 
+  <%- include ('components/head'); %>
+  <link rel="stylesheet" href="/CSS/style_moodForm.css">
 
-  <%- include('components/head'); %>
+  <title>MiaMood | NEW</title>
 
-  <title>mood/addNEW</title>
 </head>
 
 <body>
 
-  <header>
-    <%- include('components/header'); %>
-  </header>
+  <div class="horizontalSpacer"></div>
 
-  <div class="spacer5"></div>
+  <%- include ('components/header'); %>
 
-  <main>
+  <div id="containerA">
 
-    <section class="moodForm">
+    <aside id="pageTitle">
 
-      <form action="/add" method="POST" id="newMood">
+      <h2>mood/<span>NEW</span></h2>
 
-        <div id="moodChoice">
+    </aside>
 
-          <input type="hidden" name="mood_id" id="mood_idInput" class="input">
+    <section id="contentA">
 
-          <span class="label">mood *</span>
+            <form action="/add" method="POST" id="newMood">
+      
+              <div id="moodChoice">
+      
+                <input type="hidden" name="mood_id" id="mood_idInput" class="input">
+      
+                <span class="label">mood *</span>
+      
+                <div class="icon moodIcon default mood_1" id="1"></div>
+                <div class="icon moodIcon default mood_2" id="2"></div>
+                <div class="icon moodIcon default mood_3" id="3"></div>
+                <div class="icon moodIcon default mood_4" id="4"></div>
+                <div class="icon moodIcon default mood_5" id="5"></div>
+                <div class="icon moodIcon default mood_6" id="6"></div>
+                <div class="icon moodIcon default mood_0" id="0"></div>
+      
+              </div>
+      
+              <div id="dateTime">
+      
+                <span class="label" id="dateTimeLabel">date/time *</span>
+      
+                <input type="date" name="date" id="dateInput" class="dateTimeInput input" required>
+                <input type="time" step="1" name="time" id="timeInput" class="dateTimeInput input" required>
+      
+              </div>
+      
+              <div id="iconChoice">
+      
+                <input type="hidden" name="icon" id="iconInput" class="input">
+      
+                <span class="label">icon</span>
+      
+                <div id="iconWrapper">
+      
+                  <% for (let i = 0; i < iconList.length; i++) { %>
+      
+                  <div class="icon moodIcon custom">
+                    <%= iconList[i] %>
+                  </div>
+      
+                  <% } %>
+      
+                </div>
+      
+              </div>
+      
+              <div id="textChoice">
+      
+                <span class="label">text</span>
+      
+                <input type="text" name="text" id="textInput" class="input" placeholder="optional! type to add. this is example text...">
+      
+              </div>
+      
+              <input type="hidden" name="createdat" id="createdatInput" class="input">
+              <input type="hidden" name="timestamp" id="timestampInput" class="input">
+      
+              <button id="addMoodBtn" type="submit" disabled>
+                add<strong>Mood</strong>
+                <span class="icon" id="btnIcon"></span>
+              </button>
+      
+            </form>
 
-          <div class="icon moodIcon default mood_1" id="1"></div>
-          <div class="icon moodIcon default mood_2" id="2"></div>
-          <div class="icon moodIcon default mood_3" id="3"></div>
-          <div class="icon moodIcon default mood_4" id="4"></div>
-          <div class="icon moodIcon default mood_5" id="5"></div>
-          <div class="icon moodIcon default mood_6" id="6"></div>
-          <div class="icon moodIcon default mood_0" id="0"></div>
-
-        </div>
-
-        <div id="dateTime">
-
-          <span class="label" id="dateTimeLabel">date/time *</span>
-
-          <input type="date" name="date" id="dateInput" class="dateTimeInput input" required>
-          <input type="time" step="1" name="time" id="timeInput" class="dateTimeInput input" required>
-
-        </div>
-
-        <div id="iconChoice">
-
-          <input type="hidden" name="icon" id="iconInput" class="input">
-
-          <span class="label">icon</span>
-
-          <div id="iconWrapper">
-
-            <% for (let i = 0; i < iconList.length; i++) { %>
-
-            <div class="icon moodIcon custom">
-              <%= iconList[i] %>
-            </div>
-
-            <% } %>
-
-          </div>
-
-        </div>
-
-        <div id="textChoice">
-
-          <span class="label">text</span>
-
-          <input type="text" name="text" id="textInput" class="input" placeholder="optional! type to add. this is example text...">
-
-        </div>
-
-        <input type="hidden" name="createdat" id="createdatInput" class="input">
-        <input type="hidden" name="timestamp" id="timestampInput" class="input">
-
-        <button id="addMoodBtn" type="submit" disabled>
-          add<strong>Mood</strong>
-          <span class="icon" id="btnIcon"></span>
-        </button>
-
-      </form>
     </section>
 
-  </main>
+  </div>
 
-  <%- include('components/footer'); %>
+  <div id="containerB">
 
+  </div>
+
+  <script src="/JS/script.js"></script>
   <script src="/JS/script_newMood.js"></script>
 
 </body>

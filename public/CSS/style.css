@@ -1,5 +1,3 @@
-/* 👁‍🗨 delete unused fonts */ 
-
 @import url("https://use.typekit.net/jit4tes.css");
 
 @font-face {
@@ -11,66 +9,43 @@
     margin: 0;
     padding: 0;
     border: 0;
+    /* border: #9a9a9a 1px dotted; */
     box-sizing: border-box;
-    outline: none;
-}
-
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.352);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #d3b5e96d;
-    border-radius: 10px;
 }
 
 body {
     width: 100vw;
-    height: 100vh;
+    padding: 1rem 5% 2rem 5%;
+    display: flex;
+    flex-wrap: wrap;
     background: #EFE3F8;
     background-image: linear-gradient(#D3B5E9, #EFE3F8, #EFE3F8, #EFE3F8, #EFE3F8);
     background-size: cover;
     background-attachment: fixed;
     font-family: brother-1816, sans-serif;
+    font-weight: 300;
     color: #9B6CC4;
 }
 
-h1 {
-    width: 100%;
-    padding-left: 10%;
-    display: flex;
-    align-items: flex-end;
-    font-size: 3rem;
-    font-weight: 300;
+body>* {
+    padding: 0 1rem;
 }
 
 a {
     text-decoration: none;
     color: #24949c;
-    transition: all 0.5s;
-}
-
-h2,
-h3 {
-    font-size: 1.1rem;
-    font-weight: 300;
 }
 
 .icon {
     font-family: 'Remix Icon';
 }
 
-header {
+.horizontalSpacer {
     width: 100%;
-    height: 20%;
+    height: 3rem;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
 }
 
 #message {
@@ -79,7 +54,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    align-self: center;
     gap: 0.5rem;
     background: #9B6CC4;
     font-size: 1.25rem;
@@ -91,8 +65,16 @@ header {
 }
 
 @keyframes flash {
-    0%, 25%, 50% { opacity: 1; }
-    100% { opacity: 0; }
+
+    0%,
+    25%,
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 #messageText {
@@ -100,9 +82,31 @@ header {
     font-weight: lighter;
 }
 
+header {
+    width: 100%;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+h1 span {
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+h2 span {
+    font-weight: 500;
+}
+
 nav {
-    height: 1rem;
-    padding-left: 10%;
+    height: 1.5rem;
+    padding: 0.25rem 0;
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -121,135 +125,55 @@ nav {
     cursor: pointer;
 }
 
-#navHint {
-    font-size: 0.75rem;
-    font-weight: 300;
-}
-
-main {
+#containerA,
+#containerB {
     width: 100%;
-    padding: 0 10%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem 0;
-    overflow-x: hidden;
+    padding-top: 2rem;
 }
 
-.spacer5 {
-    height: 5%;
+#containerA {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#pageTitle {
+    width: 100%;
+    text-align: right;
+}
+
+#contentA {
+    width: 100%;
 }
 
 /* 📌 */
 
-section#moods {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: flex-start;
-    gap: 0.75rem;
-    overflow-y: auto;
-    overflow-x: hidden;
+.updateDestroy {
+    margin-top: 1rem;
 }
 
-article.moodContainer {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.titleDate {
-    width: 100%;
-    text-align: lwft;
-    font-weight: 400;
-}
-
-.moodIcon {
-    margin-right: 0.5rem;
-    font-size: 1.25rem;
-}
-
-.moodTimestamp {
-    width: calc(100% - 5rem);
-    font-size: 0.75rem;
-}
-
-.moodText {
-    width: 100%;
-    padding-left: 1.75rem;
-    font-family: brother-1816-printed, sans-serif;
-    font-size: 0.9rem;
-    font-weight: 200;
-}
-
-.moodOptions {
-    width: 3rem;
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.1rem;
-    opacity: 0.5;
-}
-
-.mood_1 {
-    color: #E25B2D !important;
-}
-
-.mood_2 {
-    color: #CD9F0C !important;
-}
-
-.mood_3 {
-    color: #A296AD !important;
-}
-
-.mood_4 {
-    color: #4483DB !important;
-}
-
-.mood_5 {
-    color: #03C599 !important;
-}
-
-.mood_6 {
-    color: #EA3BA7 !important;
-}
-
-.mood_0 {
-    color: #9B6CC4 !important;
-}
-
-/* 📌 */
-
-section#editMood {
-    width: 100%;
-}
-
-section#deleteMood {
-    width: 100%;
+#deleteMood {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-section#deleteMood h2 {
-    font-size: x-large;
-}
-
-section#deleteMood p {
-    font-weight: lighter;
-}
-
-div#deleteBtns {
-    margin: 1rem;
+#deleteBtns {
     display: flex;
-    justify-content: flex-end;
     gap: 2rem;
+    align-self: flex-end;
 }
 
 #deleteBtns a {
+    margin: 2rem 1rem 0 0 ;
     display: flex;
     align-items: center;
+    font-size: x-large;
+    transition: all 0.35s;
+}
+
+#deleteBtns a:hover {
+    transform: scale(1.3);
 }
 
 #noBtn {
@@ -265,85 +189,49 @@ section#oops {
     gap: 1rem;
 }
 
-section#oops h2 {
-    font-size: x-large;
-}
-
-section#oops h3 {
+#oops a {
+    margin: 1rem 2rem 0 0;
     display: flex;
     align-items: center;
     align-self: flex-end;
+    transition: all 0.35s;
+    font-size: x-large;
 }
 
-section#oops p {
-    font-weight: lighter;
+#oops a:hover {
+    transform: scale(1.3);
 }
 
-#homeIcon, #yesIcon, #noIcon {
-    margin: 0 0.25rem;
-    font-size: larger;
-}
-
-/* 📌 */
+/* 📌📌🚨 */
 
 @media screen and (min-width: 700px) {
 
     body {
-        overflow: hidden;
+        padding: 1rem 10% 2rem 10%;
     }
 
-    a:hover {
-        transform: scale(1.2);
-    }
-
-    main {
-        height: 70%;
-        flex-direction: row;
-    }
-
-    section#moods,
-    section#editMood,
-    section#deleteMood,
-    section#oops {
+    #containerA,
+    #containerB {
         width: 50%;
-        overflow-y: auto;
-        overflow-x: hidden;
-        transform: scaleX(-1);
     }
 
-    section#moods > *,
-    section#editMood > *,
-    section#deleteMood > *,
-    section#oops > * {
-        transform: scaleX(-1);
+    #pageTitle {
+        width: 3rem;
+        margin-top: 1rem;
+        text-align: left;
     }
 
-    section#moods, #oops {
-        padding-right: 2.5%;
+    #pageTitle h2 {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
     }
 
-    section#editMood,
-    section#deleteMood {
-        padding: 0 2.5%;
+    #contentA {
+        width: calc(100% - 4rem);
     }
 
-    .moodOptions {
-        opacity: 0;
-    }
-
-    .visible {
-        opacity: 0.75 !important;
-    }
-    
-    .updateDeleteIcon {
-        transition: all 0.25s;
-    }
-    
-    .updateDeleteIcon:hover {
-        transform: scale(1.5);
-    }
-
-    div#deleteBtns {
-        justify-content: center;
+    #deleteMood {
+        margin-top: 1rem;
     }
 }
