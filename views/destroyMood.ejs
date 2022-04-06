@@ -35,11 +35,6 @@
           <span class="date"><%= mood_delete.formattedDateText %></span> @ <span class="time"><%= mood_delete.formattedTime %></span>
         </div>
 
-        <div class="moodOptions">
-          <div class="icon updateIcon updateDeleteIcon"><a href="/updateMood/<%= mood_delete.createdat %>"></a></div>
-          <div class="icon deleteIcon updateDeleteIcon"><a href="/destroyMood/<%= mood_delete.createdat %>"></a></div>
-        </div>
-
         <div class="moodText">
           <%= mood_delete.text %>
         </div>
@@ -60,9 +55,9 @@
 
       <div id="deleteBtns">
 
-        <span id="noBtn"><a href="/" target="_self"><span class="icon" id="noIcon"></span>NOPE</strong></a></span>
+        <span id="noBtn"><a href="/" target="_self"><span class="icon btnIcon" id="noIcon"></span>NOPE</a></span>
 
-        <span id="yesBtn"><a href="/destroy/<%= mood_delete.createdat %>" target="_self"><span class="icon" id="yesIcon"></span><strong>YEET</strong>&nbsp;it</a></span>
+        <span id="yesBtn"><a href="/destroy/<%= mood_delete.createdat %>" target="_self"><span class="icon btnIcon" id="yesIcon"></span><strong>YEET</strong>&nbsp;it</a></span>
 
       </div>
 

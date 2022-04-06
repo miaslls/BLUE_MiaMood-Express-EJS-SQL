@@ -5,36 +5,47 @@ const Mood = require('../models/Mood');
 const { formatMood, formatMoods } = require('../util/formatMoods');
 const validateInputs = require('../util/validateInputs');
 
-
-const oops = (req, res) => {
-    res.render('oops');
-}
-
-const getLatest = async (req,res) => {
+const getLatest = async (req, res) => {
     try {
-        let moods = await Mood.findAll({ order: [['timestamp', 'DESC']], limit: 7 });
 
-        formatMoods(moods);
+        const today = new Date();
 
-        const flashMessages = req.flash('info');
-        const message = flashMessages[flashMessages.length - 1];
+        const year = today.getFullYear().toString().padStart(4, "0");
+        const month = (today.getMonth() + 1).toString().padStart(2, "0");
+        const day = today.getDate().toString().padStart(2, "0");
 
-        res.render('index', { moods, iconList, message });
+        const dateToday = `${year}-${month}-${day}`;
+
+        let moods = await Mood.findAll({ order: [['timestamp', 'DESC']], where: { date: dateToday } });
+
+        console.log(moods[0]); // 🐞
+
+        if (!moods[0]) {
+            res.render('noMood');
+        } else {
+
+            formatMoods(moods);
+
+            const flashMessages = req.flash('info');
+            const message = flashMessages[flashMessages.length - 1];
+
+            res.render('index', { moods, message });
+        }
     } catch (err) {
-        res.redirect('/oops');
+        res.render('/oops');
         console.log(err);
     }
 }
 
-const getAll = async (req,res) => {
+const getAll = async (req, res) => {
     try {
         let moods = await Mood.findAll({ order: [['timestamp', 'DESC']] });
 
         formatMoods(moods);
-        
+
         res.render('allMoods', { moods, iconList });
     } catch (err) {
-        res.redirect('/oops');
+        res.render('/oops');
         console.log(err);
     }
 }
@@ -43,7 +54,7 @@ const newMood = (req, res) => {
     try {
         res.render('newMood', { iconList });
     } catch (err) {
-        res.redirect('/oops');
+        res.render('/oops');
         console.log(err);
     }
 }
@@ -58,12 +69,12 @@ const addMood = async (req, res) => {
 
         res.redirect('/');
     } catch (err) {
-        res.redirect('/oops');
+        res.render('/oops');
         console.log(err);
     }
 }
 
-const updateMood = async (req,res) => {
+const updateMood = async (req, res) => {
     try {
         let mood_put = await Mood.findByPk(req.params.id);
 
@@ -71,7 +82,7 @@ const updateMood = async (req,res) => {
 
         res.render('updateMood', { mood_put, iconList });
     } catch (err) {
-        res.redirect('/oops');
+        res.render('/oops');
         console.log(err);
     }
 }
@@ -85,12 +96,12 @@ const update = async (req, res) => {
 
         res.redirect('/');
     } catch (err) {
-        res.redirect('/oops');
+        res.render('/oops');
         console.log(err);
     }
 }
 
-const destroyMood = async (req,res) => {
+const destroyMood = async (req, res) => {
     try {
         const mood_delete = await Mood.findByPk(req.params.id);
 
@@ -98,7 +109,7 @@ const destroyMood = async (req,res) => {
 
         res.render('destroyMood', { mood_delete, iconList });
     } catch (err) {
-        res.redirect('/oops');
+        res.render('/oops');
         console.log(err);
     }
 }
@@ -111,7 +122,7 @@ const destroy = async (req, res) => {
         res.redirect('/');
     }
     catch (err) {
-        res.redirect('/oops');
+        res.render('/oops');
         console.log(err);
     }
 }
@@ -120,4 +131,4 @@ const destroy = async (req, res) => {
 
 const iconList = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
 
-module.exports = { oops, getAll, getLatest, newMood, addMood, updateMood, update, destroyMood, destroy }
+module.exports = { getAll, getLatest, newMood, addMood, updateMood, update, destroyMood, destroy }

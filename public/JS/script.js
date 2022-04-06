@@ -11,9 +11,9 @@ for (let icon of navIconList) {
 
         switch (icon.id) {
             case 'latestMoods':
-                navHint.innerText = 'mood/LATEST';
+                navHint.innerText = 'mood/TODAY';
                 break;
-            case 'calendar':
+            case 'byDate':
                 navHint.innerText = 'mood/byDATE';
                 break;
             case 'allMoods':
