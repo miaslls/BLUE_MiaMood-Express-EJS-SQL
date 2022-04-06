@@ -3,31 +3,29 @@
 const res = require('express/lib/response');
 const Mood = require('../models/Mood');
 const { formatMood, formatMoods } = require('../util/formatMoods');
+const { getDateToday, getMoodStats } = require('../util/getMoodStats');
 const validateInputs = require('../util/validateInputs');
 
 const moodToday = async (req, res) => {
     try {
 
-        const today = new Date();
-
-        const year = today.getFullYear().toString().padStart(4, "0");
-        const month = (today.getMonth() + 1).toString().padStart(2, "0");
-        const day = today.getDate().toString().padStart(2, "0");
-
-        const dateToday = `${year}-${month}-${day}`;
-
+        const dateToday = getDateToday();
+        
         let moods = await Mood.findAll({ order: [['timestamp', 'DESC']], where: { date: dateToday } });
-
+        
+        
         if (!moods[0]) {
             res.render('noMood');
+            
         } else {
-
+            
             formatMoods(moods);
+            const moodStats = getMoodStats(moods);
 
             const flashMessages = req.flash('info');
             const message = flashMessages[flashMessages.length - 1];
 
-            res.render('index', { moods, message });
+            res.render('index', { moods, message, moodStats });
         }
     } catch (err) {
         res.render('/oops');

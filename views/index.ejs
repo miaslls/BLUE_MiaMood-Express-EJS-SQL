@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  
+
   <%- include ('components/head'); %>
 
   <title>MiaMood | TODAY</title>
@@ -44,9 +44,31 @@
 
   <div id="containerB">
 
+    <section id="statsContainer">
 
+      <h2 class="mood_<%= moodStats.average %>" id="statsTitle"><%= moods[0].formattedDateTitle.toUpperCase() %><span class="icon"><%= moodStats.icon %></span></h2>
+
+      <div id="statsContent">
+
+        <span class="statsMood"><span class="icon statsIcon mood_1" id="1"></span><%= moodStats['1'] %></span>
+        <span class="statsMood"><span class="icon statsIcon mood_2" id="2"></span><%= moodStats['2'] %></span>
+        <span class="statsMood"><span class="icon statsIcon mood_3" id="3"></span><%= moodStats['3'] %></span>
+        <span class="statsMood"><span class="icon statsIcon mood_4" id="4"></span><%= moodStats['4'] %></span>
+        <span class="statsMood"><span class="icon statsIcon mood_5" id="5"></span><%= moodStats['5'] %></span>
+
+      </div>
+
+      <% if (moodStats.love === true) { %>
+
+      <span class="statsMood mood_6"><span class="icon statsIcon mood_6" id="6"></span>you felt <strong>loved</strong></span>
+
+      <% } %>
+
+    </section>
 
   </div>
+
+
 
   <script src="/JS/script.js"></script>
 
