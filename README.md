@@ -1,11 +1,23 @@
 ![image](/public/IMG/logo.png)
 # [MiaMood](https://miamood.herokuapp.com/)
 
+## **MOOD TRACKER** | Rastreador de Humor
+
+
+Um rastreador de humor é uma ferramenta usada para manter um registro do humor de uma pessoa em intervalos regulares. O objetivo deste tipo de ferramenta é ajudar a procurar padrões de como os humores variam ao longo do tempo e devido a diferentes situações e circunstâncias.
+
+
+-----
+
 Projeto MVC desenvolvido utilizando Express, EJS e Sequelize, com banco de dados PostgreSQL.  
 
 + permite o registro, atualização e deleção de entradas.  
 + projetado para desktop (melhor experiência).  
 + responsivo. 
+
+-----
+
+-----
 
 &ensp;
 &ensp;
