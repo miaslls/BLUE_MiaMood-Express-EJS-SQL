@@ -2,9 +2,14 @@
 
 const res = require('express/lib/response');
 const Mood = require('../models/Mood');
-const { formatMood, formatMoods } = require('../util/formatMoods');
-const { getDateToday, getMoodStats } = require('../util/getMoodStats');
+const getMoodStats= require('../util/getMoodStats');
+const getDateToday= require('../util/getDateToday');
 const validateInputs = require('../util/validateInputs');
+const { formatMood, formatMoods } = require('../util/formatMoods');
+
+const oops = (req, res) => {
+    res.render('oops');
+}
 
 const moodToday = async (req, res) => {
     try {
@@ -128,4 +133,4 @@ const destroy = async (req, res) => {
 
 const iconList = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
 
-module.exports = { moodAll, moodToday, newMood, addMood, updateMood, update, destroyMood, destroy }
+module.exports = { moodAll, moodToday, newMood, addMood, updateMood, update, destroyMood, destroy, oops }
