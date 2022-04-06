@@ -88,6 +88,7 @@ const updateMood = async (req, res) => {
 const update = async (req, res) => {
     try {
         const mood = req.body;
+        validateInputs(mood);
 
         await Mood.update(mood, { where: { createdat: req.params.id } });
         req.flash('info', 'Mood UPDATED');
