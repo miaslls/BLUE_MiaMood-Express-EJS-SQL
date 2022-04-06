@@ -7,10 +7,6 @@ const getDateToday= require('../util/getDateToday');
 const validateInputs = require('../util/validateInputs');
 const { formatMood, formatMoods } = require('../util/formatMoods');
 
-const oops = (req, res) => {
-    res.render('oops');
-}
-
 const moodToday = async (req, res) => {
     try {
 
@@ -127,6 +123,10 @@ const destroy = async (req, res) => {
         res.render('/oops');
         console.log(err);
     }
+}
+
+const oops = (req, res) => {
+    res.render('oops');
 }
 
 // 📌
