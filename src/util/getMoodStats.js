@@ -2,7 +2,7 @@
 
 const getMoodStats = (moods) => {
 
-    const moodStats = { 'sum': 0, 'average': 0, 'love':false, 'icon': '', '1': 0, '2': 0, '3': 0, '4':0, '5':0 }
+    const moodStats = { 'count': 0, 'sum': 0, 'average': 0, 'love':false, 'icon': '', '1': 0, '2': 0, '3': 0, '4':0, '5':0 }
 
     for (let mood of moods) {
 
@@ -26,13 +26,13 @@ const getMoodStats = (moods) => {
             moodStats.love = true
             break;
         }
-
+        moodStats.count++;
         moodStats.sum += mood.mood_id;
     }
     
     const moodIcons = ['', '', '', '', ''];
 
-    moodStats.average = Math.floor(moodStats.sum / 5);
+    moodStats.average = Math.floor(moodStats.sum / moodStats.count);
     moodStats.icon = moodIcons[moodStats.average - 1];
 
     return moodStats;
