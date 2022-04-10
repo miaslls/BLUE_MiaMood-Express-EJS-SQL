@@ -33,16 +33,13 @@ const getMoodStats = (moods) => {
             moodStats.sum += mood.mood_id;
         }
     }
-
-    
+ 
     moodStats.average = Math.round(moodStats.sum / moodStats.count);
     
     if (moodStats.love === true) { moodStats.average++ } // love is a bonus ❤
     
     const moodIcons = ['', '', '', '', ''];
     moodStats.icon = moodIcons[moodStats.average - 1];
-
-    console.log(moodStats); // 🐞
 
     return moodStats;
 }
