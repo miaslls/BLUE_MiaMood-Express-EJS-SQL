@@ -19,8 +19,6 @@ Projeto MVC desenvolvido utilizando Express, EJS e Sequelize, com banco de dados
 
 -----
 
------
-
 &ensp;
 &ensp;
 
