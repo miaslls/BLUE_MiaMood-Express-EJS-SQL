@@ -1,4 +1,4 @@
-# <img src="/public/IMG/logo.png" alt="logo" width="30px"/> [MiaMood](https://miamood.herokuapp.com/)
+# <img src="/public/IMG/logo.png" alt="logo" width="30px"/> [MiaMood](https://miamood-01.fly.dev)
 
 ## **MOOD TRACKER** | Rastreador de Humor
 
@@ -6,7 +6,7 @@ Um rastreador de humor é uma ferramenta usada para manter um registro do humor 
 
 ---
 
-## 🏠 \[home\] [miamood-01.onrender.com](https://miamood-01.onrender.com/)
+## 🏠 \[home\] [miamood-01.fly.dev](https://miamood-01.fly.dev/)
 
 ---
 
@@ -47,11 +47,9 @@ Projeto MVC desenvolvido utilizando Express, EJS e Sequelize, com banco de dados
 
 ---
 
-| 🔗                                                                      | &ensp;&ensp;                         |
-| ----------------------------------------------------------------------- | ------------------------------------ |
-| [Adobe Fonts](https://fonts.adobe.com/fonts/brother-1816)               | &ensp;&ensp;fonte                    |
-| [Remix Icon](https://remixicon.com/)                                    | &ensp;&ensp;ícones                   |
-| [Heroku](http://www.heroku.com)                                         | &ensp;&ensp;deploy                   |
-| [Heroku Postgres](https://elements.heroku.com/addons/heroku-postgresql) | &ensp;&ensp;banco de dados           |
-| [npm cookie-session](https://www.npmjs.com/package/cookie-session)      | &ensp;&ensp;sessão e cookies         |
-| [npm connect-flash](https://www.npmjs.com/package/connect-flash)        | &ensp;&ensp;mensagens de confirmação |
+| 🔗                                                                 | &ensp;&ensp;                         |
+| ------------------------------------------------------------------ | ------------------------------------ |
+| [Adobe Fonts](https://fonts.adobe.com/fonts/brother-1816)          | &ensp;&ensp;fonte                    |
+| [Remix Icon](https://remixicon.com/)                               | &ensp;&ensp;ícones                   |
+| [npm cookie-session](https://www.npmjs.com/package/cookie-session) | &ensp;&ensp;sessão e cookies         |
+| [npm connect-flash](https://www.npmjs.com/package/connect-flash)   | &ensp;&ensp;mensagens de confirmação |
