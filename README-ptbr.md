@@ -81,13 +81,13 @@ Ferramenta utilizada para manter um registro do humor, idealmente em intervalos 
 Clone the project
 
 ```bash
-> git clone https://link-to-project
+> git clone https://github.com/miaslls/MiaMood-MoodTracker.git
 ```
 
 Go to the project directory
 
 ```bash
-> cd my-project
+> cd MiaMood-MoodTracker
 ```
 
 Install dependencies
@@ -108,11 +108,9 @@ Run the project
 
 - [@miaslls](https://www.github.com/miaslls)
 
-<!-- ## 📑 Projetos Relacionados
+## 📑 Projetos Relacionados
 
-- [Related Project](https://relatedprojectlink)
-- [Related Project](https://relatedprojectlink)
-- [Related Project](https://relatedprojectlink) -->
+- [MiaMood](https://github.com/miaslls/MiaMood)
 
 ## 🫶 Aquele Abraço
 

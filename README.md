@@ -81,13 +81,13 @@ A tool used to keep a record of one's mood, ideally at regular intervals. The pu
 Clone the project
 
 ```bash
-> git clone https://github.com/miaslls/MiaMood-1.0.git
+> git clone https://github.com/miaslls/MiaMood-MoodTracker.git
 ```
 
 Go to the project directory
 
 ```bash
-> cd MiaMood-1.0
+> cd MiaMood-MoodTracker
 ```
 
 Install dependencies
@@ -108,9 +108,9 @@ Run the project
 
 - [@miaslls](https://www.github.com/miaslls)
 
-<!-- ## 📑 Related Projects
+## 📑 Related Projects
 
-- [MiaMood 2.0](https://relatedprojectlink) -->
+- [MiaMood](https://github.com/miaslls/MiaMood)
 
 ## 🫶 Acknowledgements
 
