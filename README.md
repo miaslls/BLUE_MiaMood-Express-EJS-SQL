@@ -19,21 +19,6 @@ A tool used to keep a record of one's mood, ideally at regular intervals. The pu
 
 - [miamood-01.fly.dev](https://miamood-01.fly.dev/)
 
-## 🟰 Table of Contents
-
-<details open>
-<summary>expand / collapse</summary>
-&nbsp;
-
-- [Technologies](#-technologies)
-- [Screenshots](#%EF%B8%8F-screenshots)
-- [Color Reference](#-color-reference)
-- [Install and Run](#%EF%B8%8F-install-and-run)
-- [Authors](#-authors)
-- [Acknowledgements](#-acknowledgements)
-
-</details>
-
 ## 🧮 Technologies
 
 - Node.js
@@ -44,21 +29,11 @@ A tool used to keep a record of one's mood, ideally at regular intervals. The pu
 
 ## 🖼️ Screenshots
 
-<details open>
-<summary>expand / collapse</summary>
-&nbsp;
-
 [<img src="assets/img/thumb-01.png" alt="MiaMood App Screenshot">](assets/img/screenshot-01.png)
 
 [<img src="assets/img/thumb-02.png" alt="MiaMood App Screenshot">](assets/img/screenshot-02.png)
 
-</details>
-
 ## 🍭 Color Reference
-
-<details open>
-<summary>expand / collapse</summary>
-&nbsp;
 
 |                            Icon                            |  Mood   |                                                     | Hex     |
 | :--------------------------------------------------------: | :-----: | --------------------------------------------------- | ------- |
@@ -70,13 +45,7 @@ A tool used to keep a record of one's mood, ideally at regular intervals. The pu
 |        ![heart icon](assets/icon/heart-3-line.svg)         |  loved  | ![#ea3ba7](https://dummyimage.com/10/ea3ba7&text=+) | #ea3ba7 |
 |       ![circles icon](assets/icon/focus-2-line.svg)        | neutral | ![#9b6cc4](https://dummyimage.com/10/9b6cc4&text=+) | #9b6cc4 |
 
-</details>
-
 ## ⚙️ Install and Run
-
-<details open>
-<summary>expand / collapse</summary>
-&nbsp;
 
 Clone the project
 
@@ -101,8 +70,6 @@ Run the project
 ```bash
 > npm run start
 ```
-
-</details>
 
 ## 👩‍💻 Authors
 

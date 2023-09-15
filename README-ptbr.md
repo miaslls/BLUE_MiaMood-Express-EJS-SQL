@@ -19,21 +19,6 @@ Ferramenta utilizada para manter um registro do humor, idealmente em intervalos 
 
 - [miamood-01.fly.dev](https://miamood-01.fly.dev/)
 
-## 🟰 Tabela de Conteúdos
-
-<details open>
-<summary>expand / collapse</summary>
-&nbsp;
-
-- [Tecnologias](#-tecnologias)
-- [Screenshots](#%EF%B8%8F-screenshots)
-- [Referência de Cores](#-referência-de-cores)
-- [Instalação](#%EF%B8%8F-instalação)
-- [Autoria](#-autoria)
-- [Aquele Abraço](#-aquele-abraço)
-
-</details>
-
 ## 🧮 Tecnologias
 
 - Node.js
@@ -44,21 +29,11 @@ Ferramenta utilizada para manter um registro do humor, idealmente em intervalos 
 
 ## 🖼️ Screenshots
 
-<details open>
-<summary>expand / collapse</summary>
-&nbsp;
-
 [<img src="assets/img/thumb-01.png" alt="MiaMood App Screenshot">](assets/img/screenshot-01.png)
 
 [<img src="assets/img/thumb-02.png" alt="MiaMood App Screenshot">](assets/img/screenshot-02.png)
 
-</details>
-
 ## 🍭 Referência de Cores
-
-<details open>
-<summary>expand / collapse</summary>
-&nbsp;
 
 |                           Ícone                            |  Humor  |                                                     | Hex     |
 | :--------------------------------------------------------: | :-----: | --------------------------------------------------- | ------- |
@@ -70,13 +45,7 @@ Ferramenta utilizada para manter um registro do humor, idealmente em intervalos 
 |        ![heart icon](assets/icon/heart-3-line.svg)         |  amada  | ![#ea3ba7](https://dummyimage.com/10/ea3ba7&text=+) | #ea3ba7 |
 |       ![circles icon](assets/icon/focus-2-line.svg)        | neutro  | ![#9b6cc4](https://dummyimage.com/10/9b6cc4&text=+) | #9b6cc4 |
 
-</details>
-
 ## ⚙️ Instalação
-
-<details open>
-<summary>expand / collapse</summary>
-&nbsp;
 
 Clone the project
 
@@ -102,8 +71,6 @@ Run the project
 > npm run start
 ```
 
-</details>
-
 ## 👩‍💻 Autoria
 
 - [@miaslls](https://www.github.com/miaslls)
@@ -112,7 +79,7 @@ Run the project
 
 - [MiaMood](https://github.com/miaslls/MiaMood)
 
-## 🫶 Aquele Abraço
+## 🫶 Recursos / Agradecimentos
 
 - [@acaua](https://www.github.com/acaua)
 - [Remix Icon](https://remixicon.com/)
