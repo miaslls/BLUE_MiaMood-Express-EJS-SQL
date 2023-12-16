@@ -16,7 +16,7 @@ A tool used to keep a record of one's mood, ideally at regular intervals. The pu
 
 ## 🔗 Demo
 
-- [miamood-01.fly.dev](https://miamood-01.fly.dev/)
+- [miamood-01.camilasalles.dev](https://miamood-01.camilasalles.dev/)
 
 ## 🧮 Technologies
 

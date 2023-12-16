@@ -16,7 +16,7 @@ Ferramenta utilizada para manter um registro do humor, idealmente em intervalos 
 
 ## 🔗 Demo
 
-- [miamood-01.fly.dev](https://miamood-01.fly.dev/)
+- [miamood-01.camilasalles.dev](https://miamood-01.camilasalles.dev/)
 
 ## 🧮 Tecnologias
 
